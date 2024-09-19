@@ -1,0 +1,115 @@
+src.bootflow package
+====================
+
+Class Diagram
+-------------
+
+.. image:: ..\\class_diagram\\classes_BootFlowTool_bootflow.svg
+   :width: 800
+
+Submodules
+----------
+
+src.bootflow.boot\_event module
+-------------------------------
+
+.. automodule:: src.bootflow.boot_event
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.bootflow.boot\_flow module
+------------------------------
+
+.. automodule:: src.bootflow.boot_flow
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.bootflow.group module
+-------------------------
+
+.. automodule:: src.bootflow.group
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.bootflow.interface module
+-----------------------------
+
+.. automodule:: src.bootflow.interface
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.bootflow.name\_registry module
+----------------------------------
+
+.. automodule:: src.bootflow.name_registry
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.bootflow.processor module
+-----------------------------
+
+.. automodule:: src.bootflow.processor
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.bootflow.program\_transfer module
+-------------------------------------
+
+.. automodule:: src.bootflow.program_transfer
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.bootflow.size\_event module
+-------------------------------
+
+.. automodule:: src.bootflow.size_event
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.bootflow.size\_operation module
+-----------------------------------
+
+.. automodule:: src.bootflow.size_operation
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.bootflow.software module
+----------------------------
+
+.. automodule:: src.bootflow.software
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.bootflow.time\_event module
+-------------------------------
+
+.. automodule:: src.bootflow.time_event
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.bootflow.trigger\_wait module
+---------------------------------
+
+.. automodule:: src.bootflow.trigger_wait
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: src.bootflow
+   :members:
+   :undoc-members:
+   :show-inheritance:

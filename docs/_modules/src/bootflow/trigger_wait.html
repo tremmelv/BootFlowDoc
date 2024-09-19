@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.bootflow.trigger_wait &mdash; BootFlowTool 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            BootFlowTool
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">BootFlow</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">BootFlowTool</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">src.bootflow.trigger_wait</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for src.bootflow.trigger_wait</h1><div class="highlight"><pre>
+<span></span><span class="c1"># bootflow/trigger_wait.py</span>
+
+<span class="kn">from</span> <span class="nn">src.bootflow.name_registry</span> <span class="kn">import</span> <span class="n">NameRegistry</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<div class="viewcode-block" id="Trigger"><a class="viewcode-back" href="../../../src.bootflow.html#src.bootflow.trigger_wait.Trigger">[docs]</a><span class="k">class</span> <span class="nc">Trigger</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents a trigger event that activates based on the completion of another event.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">    -----------</span>
+<span class="sd">    name : str</span>
+<span class="sd">        The name of the trigger.</span>
+<span class="sd">    event :</span>
+<span class="sd">        The event that the trigger is associated with.</span>
+<span class="sd">    processor :</span>
+<span class="sd">        The processor associated with the event.</span>
+<span class="sd">    trigger_time : float</span>
+<span class="sd">        The calculated time at which the trigger will occur.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a Trigger object.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        name : str</span>
+<span class="sd">            The name of the trigger.</span>
+<span class="sd">        event :</span>
+<span class="sd">            The event associated with the trigger.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">event</span> <span class="o">=</span> <span class="n">event</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">processor</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">processor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">trigger_time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate_trigger_time</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">event</span><span class="o">.</span><span class="n">trigger</span> <span class="o">=</span> <span class="bp">self</span>
+
+<div class="viewcode-block" id="Trigger.calculate_trigger_time"><a class="viewcode-back" href="../../../src.bootflow.html#src.bootflow.trigger_wait.Trigger.calculate_trigger_time">[docs]</a>    <span class="k">def</span> <span class="nf">calculate_trigger_time</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculates the time at which the trigger occurs based on the duration of the events.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        --------</span>
+<span class="sd">        float :</span>
+<span class="sd">            The time at which the trigger will occur.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">trigger_time</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">processor</span><span class="o">.</span><span class="n">boot_events</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">event</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">event</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">get_duration</span><span class="p">(),</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">event</span><span class="o">.</span><span class="n">get_duration</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">trigger_time</span> <span class="o">+</span> <span class="n">event</span><span class="o">.</span><span class="n">get_duration</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">get_duration</span><span class="p">(),</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">event</span><span class="o">.</span><span class="n">get_duration</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">trigger_time</span> <span class="o">+=</span> <span class="n">event</span><span class="o">.</span><span class="n">get_duration</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Trigger.to_dict"><a class="viewcode-back" href="../../../src.bootflow.html#src.bootflow.trigger_wait.Trigger.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Converts the Trigger object into a dictionary format.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        --------</span>
+<span class="sd">        dict :</span>
+<span class="sd">            A dictionary representation of the Trigger instance, including name and event.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+            <span class="s2">&quot;event&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">event</span><span class="o">.</span><span class="n">name</span>
+        <span class="p">}</span></div>
+
+<div class="viewcode-block" id="Trigger.from_dict"><a class="viewcode-back" href="../../../src.bootflow.html#src.bootflow.trigger_wait.Trigger.from_dict">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_dict</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a Trigger object from a dictionary representation.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        data : dict</span>
+<span class="sd">            A dictionary containing the Trigger data.</span>
+<span class="sd">        event :</span>
+<span class="sd">            The event associated with the Trigger instance.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        --------</span>
+<span class="sd">        Trigger :</span>
+<span class="sd">            A new Trigger object initialized with the data from the dictionary.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">event</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="Wait"><a class="viewcode-back" href="../../../src.bootflow.html#src.bootflow.trigger_wait.Wait">[docs]</a><span class="k">class</span> <span class="nc">Wait</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents a wait condition that depends on a trigger and calculates the waiting time until that trigger occurs.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">    -----------</span>
+<span class="sd">    event :</span>
+<span class="sd">        The event that is associated with the wait condition.</span>
+<span class="sd">    processor :</span>
+<span class="sd">        The processor associated with the event.</span>
+<span class="sd">    trigger : Trigger</span>
+<span class="sd">        The trigger that determines the wait time.</span>
+<span class="sd">    waiting_time : float</span>
+<span class="sd">        The calculated waiting time.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trigger</span><span class="p">:</span> <span class="n">Trigger</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a Wait object.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        trigger : Trigger</span>
+<span class="sd">            The trigger that the wait condition depends on.</span>
+<span class="sd">        event :</span>
+<span class="sd">            The event associated with the wait condition.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">        -------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the trigger and the event have the same processor.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">trigger</span><span class="o">.</span><span class="n">processor</span> <span class="o">==</span> <span class="n">event</span><span class="o">.</span><span class="n">processor</span><span class="p">:</span>
+            <span class="n">NameRegistry</span><span class="o">.</span><span class="n">unregister_name</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The wait can&#39;t have the same processor as the trigger&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">event</span> <span class="o">=</span> <span class="n">event</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">processor</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">processor</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">trigger</span> <span class="o">=</span> <span class="n">trigger</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">waiting_time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate_waiting_time</span><span class="p">()</span>
+
+<div class="viewcode-block" id="Wait.calculate_waiting_time"><a class="viewcode-back" href="../../../src.bootflow.html#src.bootflow.trigger_wait.Wait.calculate_waiting_time">[docs]</a>    <span class="k">def</span> <span class="nf">calculate_waiting_time</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculates the waiting time based on the trigger&#39;s time and the event&#39;s duration.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        --------</span>
+<span class="sd">        Union[float, None] :</span>
+<span class="sd">            The calculated waiting time, or None if no trigger is set.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">wait_time</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">trigger</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">processor</span><span class="o">.</span><span class="n">boot_events</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">event</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">event</span><span class="p">:</span>
+                <span class="n">wait_time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trigger</span><span class="o">.</span><span class="n">calculate_trigger_time</span><span class="p">()</span> <span class="o">-</span> <span class="n">wait_time</span>
+                <span class="k">if</span> <span class="n">wait_time</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">wait_time</span> <span class="o">=</span> <span class="mf">0.0</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">event</span><span class="o">.</span><span class="n">duration</span> <span class="o">=</span> <span class="n">wait_time</span>
+                <span class="k">return</span> <span class="n">wait_time</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">get_duration</span><span class="p">(),</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">event</span><span class="o">.</span><span class="n">get_duration</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">wait_time</span> <span class="o">+=</span> <span class="n">event</span><span class="o">.</span><span class="n">get_duration</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Wait.to_dict"><a class="viewcode-back" href="../../../src.bootflow.html#src.bootflow.trigger_wait.Wait.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Converts the Wait object into a dictionary format.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        --------</span>
+<span class="sd">        dict :</span>
+<span class="sd">            A dictionary representation of the Wait instance, including trigger information.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;trigger&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">trigger</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+        <span class="p">}</span></div>
+
+<div class="viewcode-block" id="Wait.from_dict"><a class="viewcode-back" href="../../../src.bootflow.html#src.bootflow.trigger_wait.Wait.from_dict">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_dict</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">bootflow</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a Wait object from a dictionary representation.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        data : dict</span>
+<span class="sd">            A dictionary containing the Wait data.</span>
+<span class="sd">        bootflow :</span>
+<span class="sd">            The boot flow instance containing available triggers.</span>
+<span class="sd">        event :</span>
+<span class="sd">            The event associated with the Wait instance.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        --------</span>
+<span class="sd">        Union[Wait, str] :</span>
+<span class="sd">            A new Wait object initialized with the data from the dictionary, or a string if the trigger is not found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">trigger_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;trigger&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">trigger_data</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">bootflow</span><span class="o">.</span><span class="n">triggers</span><span class="p">:</span>
+            <span class="n">trigger</span> <span class="o">=</span> <span class="n">bootflow</span><span class="o">.</span><span class="n">triggers</span><span class="p">[</span><span class="n">trigger_data</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">trigger_data</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">trigger</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Vincent Tremmel.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.bootflow package &mdash; BootFlowTool 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="src.ui package" href="src.ui.html" />
+    <link rel="prev" title="src package" href="src.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            BootFlowTool
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">BootFlow</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="BootFlowTool.html">BootFlowTool module</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="src.html">src package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="src.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">src.bootflow package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="src.ui.html">src.ui package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="src.utility.html">src.utility package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="src.html#module-src">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BootFlowTool</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">BootFlow</a></li>
+          <li class="breadcrumb-item"><a href="src.html">src package</a></li>
+      <li class="breadcrumb-item active">src.bootflow package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/src.bootflow.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="src-bootflow-package">
+<h1>src.bootflow package<a class="headerlink" href="#src-bootflow-package" title="Link to this heading"></a></h1>
+<section id="class-diagram">
+<h2>Class Diagram<a class="headerlink" href="#class-diagram" title="Link to this heading"></a></h2>
+<a class="reference internal image-reference" href="_images/classes_BootFlowTool_bootflow.svg"><img alt="_images/classes_BootFlowTool_bootflow.svg" src="_images/classes_BootFlowTool_bootflow.svg" style="width: 800px;" /></a>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-src.bootflow.boot_event">
+<span id="src-bootflow-boot-event-module"></span><h2>src.bootflow.boot_event module<a class="headerlink" href="#module-src.bootflow.boot_event" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.bootflow.boot_event.BootEvent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.bootflow.boot_event.</span></span><span class="sig-name descname"><span class="pre">BootEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/boot_event.html#BootEvent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.boot_event.BootEvent" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class to represent a Boot Event.</p>
+<section id="attributes">
+<h3>Attributes:<a class="headerlink" href="#attributes" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>name<span class="classifier">str</span></dt><dd><p>The name of the boot event.</p>
+</dd>
+<dt>processor<span class="classifier">object</span></dt><dd><p>The processor associated with the boot event.</p>
+</dd>
+<dt>comment<span class="classifier">str, optional</span></dt><dd><p>A comment for the boot event (default is “”).</p>
+</dd>
+<dt>group<span class="classifier">NoneType</span></dt><dd><p>Placeholder attribute to define the group of the boot event.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.boot_event.BootEvent.change_processor">
+<span class="sig-name descname"><span class="pre">change_processor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_processor</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/boot_event.html#BootEvent.change_processor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.boot_event.BootEvent.change_processor" title="Link to this definition"></a></dt>
+<dd><p>Changes the processor of the boot event to a new processor.</p>
+<section id="parameters">
+<h4>Parameters:<a class="headerlink" href="#parameters" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>new_processor<span class="classifier">object</span></dt><dd><p>The new processor to be assigned.</p>
+</dd>
+</dl>
+</section>
+<section id="returns">
+<h4>Returns:<a class="headerlink" href="#returns" title="Link to this heading"></a></h4>
+<p>None</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.boot_event.BootEvent.check_variable_syntax">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">check_variable_syntax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/boot_event.html#BootEvent.check_variable_syntax"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.boot_event.BootEvent.check_variable_syntax" title="Link to this definition"></a></dt>
+<dd><p>Checks if the variable name follows the required syntax.</p>
+<section id="id1">
+<h4>Parameters:<a class="headerlink" href="#id1" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>variable<span class="classifier">str</span></dt><dd><p>The variable name to be checked.</p>
+</dd>
+</dl>
+</section>
+<section id="raises">
+<h4>Raises:<a class="headerlink" href="#raises" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>ValueError:</dt><dd><p>If the variable name does not start with ‘$’ and contain only alphanumeric characters and underscores.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.boot_event.BootEvent.cleanup">
+<span class="sig-name descname"><span class="pre">cleanup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/boot_event.html#BootEvent.cleanup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.boot_event.BootEvent.cleanup" title="Link to this definition"></a></dt>
+<dd><p>Method to unregister the boot event’s name from the NameRegistry.</p>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+</section>
+<section id="module-src.bootflow.boot_flow">
+<span id="src-bootflow-boot-flow-module"></span><h2>src.bootflow.boot_flow module<a class="headerlink" href="#module-src.bootflow.boot_flow" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.bootflow.boot_flow.BootFlow">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.bootflow.boot_flow.</span></span><span class="sig-name descname"><span class="pre">BootFlow</span></span><a class="reference internal" href="_modules/src/bootflow/boot_flow.html#BootFlow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.boot_flow.BootFlow" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class to represent the boot flow, managing processors, interfaces, triggers, groups, variables, and software.</p>
+<section id="id2">
+<h3>Attributes:<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>processors<span class="classifier">List[Processor]</span></dt><dd><p>A list of processors in the boot flow.</p>
+</dd>
+<dt>interfaces<span class="classifier">List[Interface]</span></dt><dd><p>A list of interfaces in the boot flow.</p>
+</dd>
+<dt>triggers<span class="classifier">Dict[str, Trigger]</span></dt><dd><p>A dictionary of triggers keyed by their names.</p>
+</dd>
+<dt>groups<span class="classifier">Dict[str, Group]</span></dt><dd><p>A dictionary of groups keyed by their names.</p>
+</dd>
+<dt>variables<span class="classifier">Dict[str, float]</span></dt><dd><p>A dictionary of variables and their values.</p>
+</dd>
+<dt>software<span class="classifier">Dict[str, Software]</span></dt><dd><p>A dictionary of software keyed by their names.</p>
+</dd>
+<dt>main_processor<span class="classifier">Union[Processor, None]</span></dt><dd><p>The main processor in the boot flow.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.boot_flow.BootFlow.add_group">
+<span class="sig-name descname"><span class="pre">add_group</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#src.bootflow.group.Group" title="src.bootflow.group.Group"><span class="pre">Group</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/boot_flow.html#BootFlow.add_group"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.boot_flow.BootFlow.add_group" title="Link to this definition"></a></dt>
+<dd><p>Adds a group to the boot flow.</p>
+<section id="id3">
+<h4>Parameters:<a class="headerlink" href="#id3" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>group<span class="classifier">Group</span></dt><dd><p>The group to be added.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.boot_flow.BootFlow.add_interface">
+<span class="sig-name descname"><span class="pre">add_interface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interface</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#src.bootflow.interface.Interface" title="src.bootflow.interface.Interface"><span class="pre">Interface</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/boot_flow.html#BootFlow.add_interface"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.boot_flow.BootFlow.add_interface" title="Link to this definition"></a></dt>
+<dd><p>Adds an interface to the boot flow.</p>
+<section id="id4">
+<h4>Parameters:<a class="headerlink" href="#id4" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>interface<span class="classifier">Interface</span></dt><dd><p>The interface to be added.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.boot_flow.BootFlow.add_processor">
+<span class="sig-name descname"><span class="pre">add_processor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">processor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#src.bootflow.processor.Processor" title="src.bootflow.processor.Processor"><span class="pre">Processor</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/boot_flow.html#BootFlow.add_processor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.boot_flow.BootFlow.add_processor" title="Link to this definition"></a></dt>
+<dd><p>Adds a processor to the boot flow and sets it as the main processor if it’s the first one added.</p>
+<section id="id5">
+<h4>Parameters:<a class="headerlink" href="#id5" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>processor<span class="classifier">Processor</span></dt><dd><p>The processor to be added.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.boot_flow.BootFlow.add_software">
+<span class="sig-name descname"><span class="pre">add_software</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">software</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#src.bootflow.software.Software" title="src.bootflow.software.Software"><span class="pre">Software</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/boot_flow.html#BootFlow.add_software"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.boot_flow.BootFlow.add_software" title="Link to this definition"></a></dt>
+<dd><p>Adds a software to the boot flow.</p>
+<section id="id6">
+<h4>Parameters:<a class="headerlink" href="#id6" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>software<span class="classifier">Software</span></dt><dd><p>The software to be added.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.boot_flow.BootFlow.del_event_by_name">
+<span class="sig-name descname"><span class="pre">del_event_by_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/boot_flow.html#BootFlow.del_event_by_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.boot_flow.BootFlow.del_event_by_name" title="Link to this definition"></a></dt>
+<dd><p>Deletes an event by its name.</p>
+<section id="id7">
+<h4>Parameters:<a class="headerlink" href="#id7" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>name<span class="classifier">str</span></dt><dd><p>The name of the event to be deleted.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.boot_flow.BootFlow.del_group_by_name">
+<span class="sig-name descname"><span class="pre">del_group_by_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/boot_flow.html#BootFlow.del_group_by_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.boot_flow.BootFlow.del_group_by_name" title="Link to this definition"></a></dt>
+<dd><p>Deletes a group by its name.</p>
+<section id="id8">
+<h4>Parameters:<a class="headerlink" href="#id8" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>name<span class="classifier">str</span></dt><dd><p>The name of the group to be deleted.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.boot_flow.BootFlow.del_interface">
+<span class="sig-name descname"><span class="pre">del_interface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/boot_flow.html#BootFlow.del_interface"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.boot_flow.BootFlow.del_interface" title="Link to this definition"></a></dt>
+<dd><p>Deletes an interface by its name.</p>
+<section id="id9">
+<h4>Parameters:<a class="headerlink" href="#id9" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>name<span class="classifier">str</span></dt><dd><p>The name of the interface to be deleted.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.boot_flow.BootFlow.del_software">
+<span class="sig-name descname"><span class="pre">del_software</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/boot_flow.html#BootFlow.del_software"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.boot_flow.BootFlow.del_software" title="Link to this definition"></a></dt>
+<dd><p>Deletes a software by its name.</p>
+<section id="id10">
+<h4>Parameters:<a class="headerlink" href="#id10" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>name<span class="classifier">str</span></dt><dd><p>The name of the sofware to be deleted.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.boot_flow.BootFlow.from_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/boot_flow.html#BootFlow.from_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.boot_flow.BootFlow.from_dict" title="Link to this definition"></a></dt>
+<dd><p>Creates a BootFlow instance from a dictionary.</p>
+<section id="id11">
+<h4>Parameters:<a class="headerlink" href="#id11" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>data<span class="classifier">Dict</span></dt><dd><p>The dictionary containing boot flow data.</p>
+</dd>
+</dl>
+</section>
+<section id="id12">
+<h4>Returns:<a class="headerlink" href="#id12" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>BootFlow</dt><dd><p>The BootFlow instance created from the dictionary.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.boot_flow.BootFlow.get_event_by_name">
+<span class="sig-name descname"><span class="pre">get_event_by_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#src.bootflow.boot_event.BootEvent" title="src.bootflow.boot_event.BootEvent"><span class="pre">BootEvent</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/bootflow/boot_flow.html#BootFlow.get_event_by_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.boot_flow.BootFlow.get_event_by_name" title="Link to this definition"></a></dt>
+<dd><p>Retrieves an event by its name.</p>
+<section id="id13">
+<h4>Parameters:<a class="headerlink" href="#id13" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>name<span class="classifier">str</span></dt><dd><p>The name of the event to be retrieved.</p>
+</dd>
+</dl>
+</section>
+<section id="id14">
+<h4>Returns:<a class="headerlink" href="#id14" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>Union[BootEvent, None]</dt><dd><p>The event if found, otherwise None.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.boot_flow.BootFlow.get_interface">
+<span class="sig-name descname"><span class="pre">get_interface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interfaceName</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#src.bootflow.interface.Interface" title="src.bootflow.interface.Interface"><span class="pre">Interface</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/bootflow/boot_flow.html#BootFlow.get_interface"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.boot_flow.BootFlow.get_interface" title="Link to this definition"></a></dt>
+<dd><p>Retrieves an interface by its name.</p>
+<section id="id15">
+<h4>Parameters:<a class="headerlink" href="#id15" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>interfaceName<span class="classifier">str</span></dt><dd><p>The name of the interface to be retrieved.</p>
+</dd>
+</dl>
+</section>
+<section id="id16">
+<h4>Returns:<a class="headerlink" href="#id16" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>Union[Interface, None]</dt><dd><p>The interface if found, otherwise None.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.boot_flow.BootFlow.get_processor">
+<span class="sig-name descname"><span class="pre">get_processor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">processor_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#src.bootflow.processor.Processor" title="src.bootflow.processor.Processor"><span class="pre">Processor</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/bootflow/boot_flow.html#BootFlow.get_processor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.boot_flow.BootFlow.get_processor" title="Link to this definition"></a></dt>
+<dd><p>Retrieves a processor by its name.</p>
+<section id="id17">
+<h4>Parameters:<a class="headerlink" href="#id17" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>processor_name<span class="classifier">str</span></dt><dd><p>The name of the processor to be retrieved.</p>
+</dd>
+</dl>
+</section>
+<section id="id18">
+<h4>Returns:<a class="headerlink" href="#id18" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>Union[Processor, None]</dt><dd><p>The processor if found, otherwise None.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.boot_flow.BootFlow.move_element">
+<span class="sig-name descname"><span class="pre">move_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processor_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/boot_flow.html#BootFlow.move_element"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.boot_flow.BootFlow.move_element" title="Link to this definition"></a></dt>
+<dd><p>Moves an element within a processor’s boot events from one index to another.</p>
+<section id="id19">
+<h4>Parameters:<a class="headerlink" href="#id19" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>index<span class="classifier">int</span></dt><dd><p>The current index of the element.</p>
+</dd>
+<dt>new_index<span class="classifier">int</span></dt><dd><p>The new index of the element.</p>
+</dd>
+<dt>processor_name<span class="classifier">str</span></dt><dd><p>The name of the processor containing the element.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.boot_flow.BootFlow.remove_item">
+<span class="sig-name descname"><span class="pre">remove_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processor_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/boot_flow.html#BootFlow.remove_item"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.boot_flow.BootFlow.remove_item" title="Link to this definition"></a></dt>
+<dd><p>Removes an item from the boot flow or a specific processor.</p>
+<section id="id20">
+<h4>Parameters:<a class="headerlink" href="#id20" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>item<span class="classifier">object</span></dt><dd><p>The item to be removed.</p>
+</dd>
+<dt>processor_name<span class="classifier">Union[str, None], optional</span></dt><dd><p>The name of the processor from which the item should be removed (default is None).</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.boot_flow.BootFlow.set_main_processor">
+<span class="sig-name descname"><span class="pre">set_main_processor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">processor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#src.bootflow.processor.Processor" title="src.bootflow.processor.Processor"><span class="pre">Processor</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/boot_flow.html#BootFlow.set_main_processor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.boot_flow.BootFlow.set_main_processor" title="Link to this definition"></a></dt>
+<dd><p>Sets the main processor of the boot flow.</p>
+<section id="id21">
+<h4>Parameters:<a class="headerlink" href="#id21" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>processor<span class="classifier">Processor</span></dt><dd><p>The processor to be set as the main processor.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.boot_flow.BootFlow.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="reference internal" href="_modules/src/bootflow/boot_flow.html#BootFlow.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.boot_flow.BootFlow.to_dict" title="Link to this definition"></a></dt>
+<dd><p>Converts the BootFlow instance to a dictionary.</p>
+<section id="id22">
+<h4>Returns:<a class="headerlink" href="#id22" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>Dict</dt><dd><p>A dictionary representation of the BootFlow instance.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.boot_flow.BootFlow.update_duration">
+<span class="sig-name descname"><span class="pre">update_duration</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/boot_flow.html#BootFlow.update_duration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.boot_flow.BootFlow.update_duration" title="Link to this definition"></a></dt>
+<dd><p>Updates the duration of events in all processors within the boot flow.</p>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+</section>
+<section id="module-src.bootflow.group">
+<span id="src-bootflow-group-module"></span><h2>src.bootflow.group module<a class="headerlink" href="#module-src.bootflow.group" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.bootflow.group.Group">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.bootflow.group.</span></span><span class="sig-name descname"><span class="pre">Group</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/group.html#Group"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.group.Group" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class to represent a group of boot events.</p>
+<section id="id23">
+<h3>Attributes:<a class="headerlink" href="#id23" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>name<span class="classifier">str</span></dt><dd><p>The name of the group.</p>
+</dd>
+<dt>members<span class="classifier">Dict[str, BootEvent]</span></dt><dd><p>A dictionary of group members keyed by their event names.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.group.Group.add_to_group">
+<span class="sig-name descname"><span class="pre">add_to_group</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/group.html#Group.add_to_group"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.group.Group.add_to_group" title="Link to this definition"></a></dt>
+<dd><p>Adds an event to the group.</p>
+<section id="id24">
+<h4>Parameters:<a class="headerlink" href="#id24" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>event<span class="classifier">BootEvent</span></dt><dd><p>The event to be added to the group.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.group.Group.from_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/group.html#Group.from_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.group.Group.from_dict" title="Link to this definition"></a></dt>
+<dd><p>Creates a Group instance from a dictionary.</p>
+<section id="id25">
+<h4>Parameters:<a class="headerlink" href="#id25" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>data<span class="classifier">dict</span></dt><dd><p>The dictionary containing group data.</p>
+</dd>
+</dl>
+</section>
+<section id="id26">
+<h4>Returns:<a class="headerlink" href="#id26" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>Group</dt><dd><p>The Group instance created from the dictionary.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.group.Group.remove_from_group">
+<span class="sig-name descname"><span class="pre">remove_from_group</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/group.html#Group.remove_from_group"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.group.Group.remove_from_group" title="Link to this definition"></a></dt>
+<dd><p>Removes an event from the group.</p>
+<section id="id27">
+<h4>Parameters:<a class="headerlink" href="#id27" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>event<span class="classifier">BootEvent</span></dt><dd><p>The event to be removed from the group.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.group.Group.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/group.html#Group.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.group.Group.to_dict" title="Link to this definition"></a></dt>
+<dd><p>Converts the Group instance to a dictionary.</p>
+<section id="id28">
+<h4>Returns:<a class="headerlink" href="#id28" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>dict</dt><dd><p>A dictionary representation of the Group instance.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+</section>
+<section id="module-src.bootflow.interface">
+<span id="src-bootflow-interface-module"></span><h2>src.bootflow.interface module<a class="headerlink" href="#module-src.bootflow.interface" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.bootflow.interface.Interface">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.bootflow.interface.</span></span><span class="sig-name descname"><span class="pre">Interface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transferSpeed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/interface.html#Interface"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.interface.Interface" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class to represent an interface with a name and transfer speed.</p>
+<section id="id29">
+<h3>Attributes:<a class="headerlink" href="#id29" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>name<span class="classifier">str</span></dt><dd><p>The name of the interface.</p>
+</dd>
+<dt>transferSpeed<span class="classifier">float</span></dt><dd><p>The transfer speed of the interface.</p>
+</dd>
+<dt>comment<span class="classifier">str, optional</span></dt><dd><p>Additional comments about the interface (default is an empty string).</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.interface.Interface.cleanup">
+<span class="sig-name descname"><span class="pre">cleanup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/interface.html#Interface.cleanup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.interface.Interface.cleanup" title="Link to this definition"></a></dt>
+<dd><p>Method to unregister the boot event’s name from the NameRegistry.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.interface.Interface.from_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/interface.html#Interface.from_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.interface.Interface.from_dict" title="Link to this definition"></a></dt>
+<dd><p>Creates an Interface instance from a dictionary.</p>
+<section id="id30">
+<h4>Parameters:<a class="headerlink" href="#id30" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>data<span class="classifier">dict</span></dt><dd><p>The dictionary containing interface data.</p>
+</dd>
+</dl>
+</section>
+<section id="id31">
+<h4>Returns:<a class="headerlink" href="#id31" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>Interface</dt><dd><p>The Interface instance created from the dictionary.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.interface.Interface.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/interface.html#Interface.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.interface.Interface.to_dict" title="Link to this definition"></a></dt>
+<dd><p>Converts the Interface instance to a dictionary.</p>
+<section id="id32">
+<h4>Returns:<a class="headerlink" href="#id32" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>dict</dt><dd><p>A dictionary representation of the Interface instance.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+</section>
+<section id="module-src.bootflow.name_registry">
+<span id="src-bootflow-name-registry-module"></span><h2>src.bootflow.name_registry module<a class="headerlink" href="#module-src.bootflow.name_registry" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.bootflow.name_registry.NameRegistry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.bootflow.name_registry.</span></span><span class="sig-name descname"><span class="pre">NameRegistry</span></span><a class="reference internal" href="_modules/src/bootflow/name_registry.html#NameRegistry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.name_registry.NameRegistry" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A registry to manage unique names.</p>
+<section id="id33">
+<h3>Attributes:<a class="headerlink" href="#id33" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>_names<span class="classifier">set</span></dt><dd><p>A set to store unique names.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.name_registry.NameRegistry.clear">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/name_registry.html#NameRegistry.clear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.name_registry.NameRegistry.clear" title="Link to this definition"></a></dt>
+<dd><p>Clears all names from the registry.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.name_registry.NameRegistry.register_name">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">register_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/name_registry.html#NameRegistry.register_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.name_registry.NameRegistry.register_name" title="Link to this definition"></a></dt>
+<dd><p>Registers a name in the registry. Raises an error if the name is already in use.</p>
+<section id="id34">
+<h4>Parameters:<a class="headerlink" href="#id34" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>name<span class="classifier">str</span></dt><dd><p>The name to be registered.</p>
+</dd>
+</dl>
+</section>
+<section id="id35">
+<h4>Raises:<a class="headerlink" href="#id35" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>ValueError</dt><dd><p>If the name is already in use.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.name_registry.NameRegistry.unregister_name">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unregister_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/name_registry.html#NameRegistry.unregister_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.name_registry.NameRegistry.unregister_name" title="Link to this definition"></a></dt>
+<dd><p>Unregisters a name from the registry.</p>
+<section id="id36">
+<h4>Parameters:<a class="headerlink" href="#id36" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>name<span class="classifier">str</span></dt><dd><p>The name to be unregistered.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+</section>
+<section id="module-src.bootflow.processor">
+<span id="src-bootflow-processor-module"></span><h2>src.bootflow.processor module<a class="headerlink" href="#module-src.bootflow.processor" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.bootflow.processor.Processor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.bootflow.processor.</span></span><span class="sig-name descname"><span class="pre">Processor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boot_flow</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comment</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/processor.html#Processor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.processor.Processor" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Manages a sequence of boot events that represent different stages in a boot flow process.</p>
+<section id="id37">
+<h3>Attributes:<a class="headerlink" href="#id37" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>name<span class="classifier">str</span></dt><dd><p>The name of the processor, which must be unique.</p>
+</dd>
+<dt>boot_flow :</dt><dd><p>The boot flow object associated with this processor.</p>
+</dd>
+<dt>comment<span class="classifier">str</span></dt><dd><p>An optional comment or description of the processor.</p>
+</dd>
+<dt>boot_events<span class="classifier">List[BootEvent]</span></dt><dd><p>A list of boot events associated with the processor.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.processor.Processor.add_event">
+<span class="sig-name descname"><span class="pre">add_event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#src.bootflow.boot_event.BootEvent" title="src.bootflow.boot_event.BootEvent"><span class="pre">BootEvent</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/processor.html#Processor.add_event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.processor.Processor.add_event" title="Link to this definition"></a></dt>
+<dd><p>Adds a boot event to the processor’s list of events.</p>
+<section id="id38">
+<h4>Parameters:<a class="headerlink" href="#id38" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>event<span class="classifier">BootEvent</span></dt><dd><p>The boot event to add.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.processor.Processor.from_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boot_flow</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/processor.html#Processor.from_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.processor.Processor.from_dict" title="Link to this definition"></a></dt>
+<dd><p>Creates a Processor object from a dictionary representation.</p>
+<section id="id39">
+<h4>Parameters:<a class="headerlink" href="#id39" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>data<span class="classifier">dict</span></dt><dd><p>A dictionary containing the processor’s data.</p>
+</dd>
+<dt>boot_flow :</dt><dd><p>The boot flow object associated with the processor.</p>
+</dd>
+</dl>
+</section>
+<section id="id40">
+<h4>Returns:<a class="headerlink" href="#id40" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>Processor :</dt><dd><p>A new Processor object initialized with the data from the dictionary.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.processor.Processor.move_element">
+<span class="sig-name descname"><span class="pre">move_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/processor.html#Processor.move_element"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.processor.Processor.move_element" title="Link to this definition"></a></dt>
+<dd><p>Moves a boot event from one position to another within the processor’s list of events.</p>
+<section id="id41">
+<h4>Parameters:<a class="headerlink" href="#id41" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>index<span class="classifier">int</span></dt><dd><p>The current index of the event to move.</p>
+</dd>
+<dt>new_index<span class="classifier">int</span></dt><dd><p>The new index to move the event to.</p>
+</dd>
+</dl>
+</section>
+<section id="id42">
+<h4>Raises:<a class="headerlink" href="#id42" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>IndexError</dt><dd><p>If either index or new_index is out of range.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.processor.Processor.remove_item">
+<span class="sig-name descname"><span class="pre">remove_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/processor.html#Processor.remove_item"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.processor.Processor.remove_item" title="Link to this definition"></a></dt>
+<dd><p>Removes a specific boot event from the processor’s list of events.</p>
+<section id="id43">
+<h4>Parameters:<a class="headerlink" href="#id43" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>item<span class="classifier">BootEvent</span></dt><dd><p>The boot event to remove.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.processor.Processor.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/processor.html#Processor.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.processor.Processor.to_dict" title="Link to this definition"></a></dt>
+<dd><p>Converts the processor object into a dictionary format.</p>
+<section id="id44">
+<h4>Returns:<a class="headerlink" href="#id44" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>dict :</dt><dd><p>A dictionary representation of the processor, including its name, comment, and boot events.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.processor.Processor.total">
+<span class="sig-name descname"><span class="pre">total</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/processor.html#Processor.total"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.processor.Processor.total" title="Link to this definition"></a></dt>
+<dd><p>Calculates the total duration of all boot events in the processor.</p>
+<section id="id45">
+<h4>Returns:<a class="headerlink" href="#id45" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>tuple :</dt><dd><dl class="simple">
+<dt>A tuple containing:</dt><dd><ul class="simple">
+<li><p>total (int): The total duration of all completed events.</p></li>
+<li><p>not_complete (int): A flag indicating if any event duration is incomplete (1 if incomplete, 0 if complete).</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.processor.Processor.update_duration">
+<span class="sig-name descname"><span class="pre">update_duration</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/processor.html#Processor.update_duration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.processor.Processor.update_duration" title="Link to this definition"></a></dt>
+<dd><p>Updates the duration of certain boot events (ProgramTransfer, SizeOperation) by recalculating their durations.</p>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+</section>
+<section id="module-src.bootflow.program_transfer">
+<span id="src-bootflow-program-transfer-module"></span><h2>src.bootflow.program_transfer module<a class="headerlink" href="#module-src.bootflow.program_transfer" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.bootflow.program_transfer.ProgramTransfer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.bootflow.program_transfer.</span></span><span class="sig-name descname"><span class="pre">ProgramTransfer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">software</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#src.bootflow.software.Software" title="src.bootflow.software.Software"><span class="pre">Software</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">interface</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#src.bootflow.interface.Interface" title="src.bootflow.interface.Interface"><span class="pre">Interface</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">processor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comment</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/program_transfer.html#ProgramTransfer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.program_transfer.ProgramTransfer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#src.bootflow.size_event.SizeEvent" title="src.bootflow.size_event.SizeEvent"><code class="xref py py-class docutils literal notranslate"><span class="pre">SizeEvent</span></code></a></p>
+<p>Represents a program transfer event in the boot flow, which is responsible for 
+transferring software to a processor via an interface.</p>
+<section id="inherits-from">
+<h3>Inherits from:<a class="headerlink" href="#inherits-from" title="Link to this heading"></a></h3>
+<p>SizeEvent : The base class for events related to size-based operations.</p>
+</section>
+<section id="id46">
+<h3>Attributes:<a class="headerlink" href="#id46" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>interface<span class="classifier">Interface</span></dt><dd><p>The interface used for the program transfer.</p>
+</dd>
+<dt>duration<span class="classifier">float</span></dt><dd><p>The calculated duration of the transfer in milliseconds.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.program_transfer.ProgramTransfer.calculate_duration">
+<span class="sig-name descname"><span class="pre">calculate_duration</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/src/bootflow/program_transfer.html#ProgramTransfer.calculate_duration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.program_transfer.ProgramTransfer.calculate_duration" title="Link to this definition"></a></dt>
+<dd><p>Calculates the duration of the program transfer based on the software size 
+and the interface transfer speed.</p>
+<section id="id47">
+<h4>Returns:<a class="headerlink" href="#id47" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>float :</dt><dd><p>The duration of the transfer in milliseconds, or “-” if the software size is not available or the software/interface was deleted.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.program_transfer.ProgramTransfer.from_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interfaces</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boot_flow</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/program_transfer.html#ProgramTransfer.from_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.program_transfer.ProgramTransfer.from_dict" title="Link to this definition"></a></dt>
+<dd><p>Creates a ProgramTransfer object from a dictionary representation.</p>
+<section id="id48">
+<h4>Parameters:<a class="headerlink" href="#id48" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>data<span class="classifier">dict</span></dt><dd><p>A dictionary containing the ProgramTransfer event data.</p>
+</dd>
+<dt>interfaces<span class="classifier">list</span></dt><dd><p>A list of available interfaces to match against the provided interface name.</p>
+</dd>
+<dt>processor :</dt><dd><p>The processor associated with the ProgramTransfer event.</p>
+</dd>
+<dt>boot_flow :</dt><dd><p>The boot flow object containing available software and groups.</p>
+</dd>
+</dl>
+</section>
+<section id="id49">
+<h4>Returns:<a class="headerlink" href="#id49" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>ProgramTransfer :</dt><dd><p>A new ProgramTransfer object initialized with the data from the dictionary.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.program_transfer.ProgramTransfer.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/src/bootflow/program_transfer.html#ProgramTransfer.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.program_transfer.ProgramTransfer.to_dict" title="Link to this definition"></a></dt>
+<dd><p>Converts the ProgramTransfer object into a dictionary format.</p>
+<section id="id50">
+<h4>Returns:<a class="headerlink" href="#id50" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>dict :</dt><dd><p>A dictionary representation of the ProgramTransfer event, including type, name, software, interface, comment, and group.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+</section>
+<section id="module-src.bootflow.size_event">
+<span id="src-bootflow-size-event-module"></span><h2>src.bootflow.size_event module<a class="headerlink" href="#module-src.bootflow.size_event" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.bootflow.size_event.SizeEvent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.bootflow.size_event.</span></span><span class="sig-name descname"><span class="pre">SizeEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">software</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#src.bootflow.software.Software" title="src.bootflow.software.Software"><span class="pre">Software</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">processor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comment</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/size_event.html#SizeEvent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.size_event.SizeEvent" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#src.bootflow.boot_event.BootEvent" title="src.bootflow.boot_event.BootEvent"><code class="xref py py-class docutils literal notranslate"><span class="pre">BootEvent</span></code></a></p>
+<p>Represents an event in the boot flow that involves software size-related operations.</p>
+<section id="id51">
+<h3>Inherits from:<a class="headerlink" href="#id51" title="Link to this heading"></a></h3>
+<p>BootEvent : The base class for all boot flow events.</p>
+</section>
+<section id="id52">
+<h3>Attributes:<a class="headerlink" href="#id52" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>software<span class="classifier">Software</span></dt><dd><p>The software associated with the size event.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.size_event.SizeEvent.get_duration">
+<span class="sig-name descname"><span class="pre">get_duration</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/size_event.html#SizeEvent.get_duration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.size_event.SizeEvent.get_duration" title="Link to this definition"></a></dt>
+<dd><p>Retrieves the duration of the size event.</p>
+<section id="id53">
+<h4>Returns:<a class="headerlink" href="#id53" title="Link to this heading"></a></h4>
+<p>The duration of the size event.</p>
+</section>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+</section>
+<section id="module-src.bootflow.size_operation">
+<span id="src-bootflow-size-operation-module"></span><h2>src.bootflow.size_operation module<a class="headerlink" href="#module-src.bootflow.size_operation" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.bootflow.size_operation.SizeOperation">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.bootflow.size_operation.</span></span><span class="sig-name descname"><span class="pre">SizeOperation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">software</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#src.bootflow.software.Software" title="src.bootflow.software.Software"><span class="pre">Software</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">operationSpeed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comment</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/size_operation.html#SizeOperation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.size_operation.SizeOperation" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#src.bootflow.size_event.SizeEvent" title="src.bootflow.size_event.SizeEvent"><code class="xref py py-class docutils literal notranslate"><span class="pre">SizeEvent</span></code></a></p>
+<p>Represents an operation in the boot flow that involves the processing of software 
+based on its size and a specified operation speed.</p>
+<section id="id54">
+<h3>Inherits from:<a class="headerlink" href="#id54" title="Link to this heading"></a></h3>
+<p>SizeEvent : The base class for events related to size-based operations.</p>
+</section>
+<section id="id55">
+<h3>Attributes:<a class="headerlink" href="#id55" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>operationSpeed<span class="classifier">float or str</span></dt><dd><p>The speed at which the size operation is performed. Can be a direct value or a variable name.</p>
+</dd>
+<dt>duration<span class="classifier">float or str</span></dt><dd><p>The calculated duration of the operation in milliseconds.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.size_operation.SizeOperation.calculate_duration">
+<span class="sig-name descname"><span class="pre">calculate_duration</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></span><a class="reference internal" href="_modules/src/bootflow/size_operation.html#SizeOperation.calculate_duration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.size_operation.SizeOperation.calculate_duration" title="Link to this definition"></a></dt>
+<dd><p>Calculates the duration of the size operation based on the software size 
+and the operation speed.</p>
+<section id="id56">
+<h4>Returns:<a class="headerlink" href="#id56" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>float or str :</dt><dd><p>The duration of the operation in milliseconds, or “-” if the size or speed is unavailable or the software was deleted.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.size_operation.SizeOperation.from_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boot_flow</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/size_operation.html#SizeOperation.from_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.size_operation.SizeOperation.from_dict" title="Link to this definition"></a></dt>
+<dd><p>Creates a SizeOperation object from a dictionary representation.</p>
+<section id="id57">
+<h4>Parameters:<a class="headerlink" href="#id57" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>data<span class="classifier">dict</span></dt><dd><p>A dictionary containing the SizeOperation event data.</p>
+</dd>
+<dt>processor :</dt><dd><p>The processor associated with the SizeOperation event.</p>
+</dd>
+<dt>boot_flow :</dt><dd><p>The boot flow object containing available software and groups.</p>
+</dd>
+</dl>
+</section>
+<section id="id58">
+<h4>Returns:<a class="headerlink" href="#id58" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>SizeOperation :</dt><dd><p>A new SizeOperation object initialized with the data from the dictionary.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.size_operation.SizeOperation.get_operation_speed">
+<span class="sig-name descname"><span class="pre">get_operation_speed</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></span><a class="reference internal" href="_modules/src/bootflow/size_operation.html#SizeOperation.get_operation_speed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.size_operation.SizeOperation.get_operation_speed" title="Link to this definition"></a></dt>
+<dd><p>Retrieves the operation speed. If the speed is defined as a variable, 
+it checks and retrieves the value from the processor’s boot flow variables.</p>
+<section id="id59">
+<h4>Returns:<a class="headerlink" href="#id59" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>float or str :</dt><dd><p>The operation speed as a float, or “TBD” if the value is not yet determined.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.size_operation.SizeOperation.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/src/bootflow/size_operation.html#SizeOperation.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.size_operation.SizeOperation.to_dict" title="Link to this definition"></a></dt>
+<dd><p>Converts the SizeOperation object into a dictionary format.</p>
+<section id="id60">
+<h4>Returns:<a class="headerlink" href="#id60" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>dict :</dt><dd><p>A dictionary representation of the SizeOperation event, including type, name, software, operation speed, comment, and group.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+</section>
+<section id="module-src.bootflow.software">
+<span id="src-bootflow-software-module"></span><h2>src.bootflow.software module<a class="headerlink" href="#module-src.bootflow.software" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.bootflow.software.Software">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.bootflow.software.</span></span><span class="sig-name descname"><span class="pre">Software</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boot_flow</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comment</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/software.html#Software"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.software.Software" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents software used in the boot flow, including its name, size, and associated metadata.</p>
+<section id="id61">
+<h3>Attributes:<a class="headerlink" href="#id61" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>name<span class="classifier">str</span></dt><dd><p>The name of the software.</p>
+</dd>
+<dt>size<span class="classifier">int, float, or str</span></dt><dd><p>The size of the software, which can be a numeric value or a variable.</p>
+</dd>
+<dt>boot_flow :</dt><dd><p>The boot flow instance associated with this software.</p>
+</dd>
+<dt>comment<span class="classifier">str</span></dt><dd><p>An optional comment or description of the software.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.software.Software.check_variable_syntax">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">check_variable_syntax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/software.html#Software.check_variable_syntax"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.software.Software.check_variable_syntax" title="Link to this definition"></a></dt>
+<dd><p>Validates the syntax of a variable name.</p>
+<section id="id62">
+<h4>Parameters:<a class="headerlink" href="#id62" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>variable<span class="classifier">str</span></dt><dd><p>The variable name to be checked.</p>
+</dd>
+</dl>
+</section>
+<section id="id63">
+<h4>Raises:<a class="headerlink" href="#id63" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>ValueError</dt><dd><p>If the variable syntax is invalid. Valid syntax must start with ‘$’ 
+and contain only alphanumeric characters and underscores.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.software.Software.cleanup">
+<span class="sig-name descname"><span class="pre">cleanup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/software.html#Software.cleanup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.software.Software.cleanup" title="Link to this definition"></a></dt>
+<dd><p>Method to unregister the boot event’s name from the NameRegistry.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.software.Software.from_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boot_flow</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/software.html#Software.from_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.software.Software.from_dict" title="Link to this definition"></a></dt>
+<dd><p>Creates a Software object from a dictionary representation.</p>
+<section id="id64">
+<h4>Parameters:<a class="headerlink" href="#id64" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>data<span class="classifier">dict</span></dt><dd><p>A dictionary containing the Software instance data.</p>
+</dd>
+<dt>boot_flow :</dt><dd><p>The boot flow instance associated with this software.</p>
+</dd>
+</dl>
+</section>
+<section id="id65">
+<h4>Returns:<a class="headerlink" href="#id65" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>Software :</dt><dd><p>A new Software object initialized with the data from the dictionary.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.software.Software.get_size">
+<span class="sig-name descname"><span class="pre">get_size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></span><a class="reference internal" href="_modules/src/bootflow/software.html#Software.get_size"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.software.Software.get_size" title="Link to this definition"></a></dt>
+<dd><p>Retrieves the size of the software. If the size is defined as a variable, 
+it checks and retrieves the value from the boot flow’s variables.</p>
+<section id="id66">
+<h4>Returns:<a class="headerlink" href="#id66" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>int, float, or str :</dt><dd><p>The size of the software, or “TBD” if the value is not yet determined.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.software.Software.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/src/bootflow/software.html#Software.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.software.Software.to_dict" title="Link to this definition"></a></dt>
+<dd><p>Converts the Software object into a dictionary format.</p>
+<section id="id67">
+<h4>Returns:<a class="headerlink" href="#id67" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>dict :</dt><dd><p>A dictionary representation of the Software instance, including type, name, size, and comment.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+</section>
+<section id="module-src.bootflow.time_event">
+<span id="src-bootflow-time-event-module"></span><h2>src.bootflow.time_event module<a class="headerlink" href="#module-src.bootflow.time_event" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.bootflow.time_event.TimeEvent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.bootflow.time_event.</span></span><span class="sig-name descname"><span class="pre">TimeEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comment</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/time_event.html#TimeEvent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.time_event.TimeEvent" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#src.bootflow.boot_event.BootEvent" title="src.bootflow.boot_event.BootEvent"><code class="xref py py-class docutils literal notranslate"><span class="pre">BootEvent</span></code></a></p>
+<p>Represents an event in the boot flow that involves a specific duration of time,
+and optionally, a trigger and wait condition.</p>
+<section id="id68">
+<h3>Inherits from:<a class="headerlink" href="#id68" title="Link to this heading"></a></h3>
+<p>BootEvent : The base class for all boot flow events.</p>
+</section>
+<section id="id69">
+<h3>Attributes:<a class="headerlink" href="#id69" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>duration<span class="classifier">float, int, or str</span></dt><dd><p>The duration of the time event, which can be a numeric value or a variable name.</p>
+</dd>
+<dt>trigger<span class="classifier">Trigger or None</span></dt><dd><p>An optional trigger associated with the time event.</p>
+</dd>
+<dt>wait<span class="classifier">Wait or None</span></dt><dd><p>An optional wait condition associated with the time event.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.time_event.TimeEvent.from_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boot_flow</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/time_event.html#TimeEvent.from_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.time_event.TimeEvent.from_dict" title="Link to this definition"></a></dt>
+<dd><p>Creates a TimeEvent object from a dictionary representation.</p>
+<section id="id70">
+<h4>Parameters:<a class="headerlink" href="#id70" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>data<span class="classifier">dict</span></dt><dd><p>A dictionary containing the TimeEvent data.</p>
+</dd>
+<dt>processor :</dt><dd><p>The processor associated with the TimeEvent instance.</p>
+</dd>
+<dt>boot_flow :</dt><dd><p>The boot flow instance containing available triggers and wait conditions.</p>
+</dd>
+</dl>
+</section>
+<section id="id71">
+<h4>Returns:<a class="headerlink" href="#id71" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>TimeEvent :</dt><dd><p>A new TimeEvent object initialized with the data from the dictionary.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.time_event.TimeEvent.get_duration">
+<span class="sig-name descname"><span class="pre">get_duration</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></span><a class="reference internal" href="_modules/src/bootflow/time_event.html#TimeEvent.get_duration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.time_event.TimeEvent.get_duration" title="Link to this definition"></a></dt>
+<dd><p>Retrieves the duration of the time event. If the duration is defined as a variable, 
+it checks and retrieves the value from the processor’s boot flow variables. 
+If a wait condition is set, it calculates the waiting time.</p>
+<section id="id72">
+<h4>Returns:<a class="headerlink" href="#id72" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>float, int, or str :</dt><dd><p>The duration of the time event, or “TBD” if the value is not yet determined.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.time_event.TimeEvent.set_trigger">
+<span class="sig-name descname"><span class="pre">set_trigger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trigger</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#src.bootflow.trigger_wait.Trigger" title="src.bootflow.trigger_wait.Trigger"><span class="pre">Trigger</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">boot_flow</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/time_event.html#TimeEvent.set_trigger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.time_event.TimeEvent.set_trigger" title="Link to this definition"></a></dt>
+<dd><p>Sets the trigger for the time event and registers it in the boot flow.</p>
+<section id="id73">
+<h4>Parameters:<a class="headerlink" href="#id73" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>trigger<span class="classifier">Trigger</span></dt><dd><p>The trigger to be associated with the time event.</p>
+</dd>
+<dt>boot_flow :</dt><dd><p>The boot flow instance where the trigger should be registered.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.time_event.TimeEvent.set_wait">
+<span class="sig-name descname"><span class="pre">set_wait</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#src.bootflow.trigger_wait.Wait" title="src.bootflow.trigger_wait.Wait"><span class="pre">Wait</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/time_event.html#TimeEvent.set_wait"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.time_event.TimeEvent.set_wait" title="Link to this definition"></a></dt>
+<dd><p>Sets the wait condition for the time event.</p>
+<section id="id74">
+<h4>Parameters:<a class="headerlink" href="#id74" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>wait<span class="classifier">Wait</span></dt><dd><p>The wait condition to be associated with the time event.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.time_event.TimeEvent.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/src/bootflow/time_event.html#TimeEvent.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.time_event.TimeEvent.to_dict" title="Link to this definition"></a></dt>
+<dd><p>Converts the TimeEvent object into a dictionary format.</p>
+<section id="id75">
+<h4>Returns:<a class="headerlink" href="#id75" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>dict :</dt><dd><p>A dictionary representation of the TimeEvent instance, including type, name, duration, comment, trigger, and wait.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+</section>
+<section id="module-src.bootflow.trigger_wait">
+<span id="src-bootflow-trigger-wait-module"></span><h2>src.bootflow.trigger_wait module<a class="headerlink" href="#module-src.bootflow.trigger_wait" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.bootflow.trigger_wait.Trigger">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.bootflow.trigger_wait.</span></span><span class="sig-name descname"><span class="pre">Trigger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/trigger_wait.html#Trigger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.trigger_wait.Trigger" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents a trigger event that activates based on the completion of another event.</p>
+<section id="id76">
+<h3>Attributes:<a class="headerlink" href="#id76" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>name<span class="classifier">str</span></dt><dd><p>The name of the trigger.</p>
+</dd>
+<dt>event :</dt><dd><p>The event that the trigger is associated with.</p>
+</dd>
+<dt>processor :</dt><dd><p>The processor associated with the event.</p>
+</dd>
+<dt>trigger_time<span class="classifier">float</span></dt><dd><p>The calculated time at which the trigger will occur.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.trigger_wait.Trigger.calculate_trigger_time">
+<span class="sig-name descname"><span class="pre">calculate_trigger_time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/src/bootflow/trigger_wait.html#Trigger.calculate_trigger_time"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.trigger_wait.Trigger.calculate_trigger_time" title="Link to this definition"></a></dt>
+<dd><p>Calculates the time at which the trigger occurs based on the duration of the events.</p>
+<section id="id77">
+<h4>Returns:<a class="headerlink" href="#id77" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>float :</dt><dd><p>The time at which the trigger will occur.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.trigger_wait.Trigger.from_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/trigger_wait.html#Trigger.from_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.trigger_wait.Trigger.from_dict" title="Link to this definition"></a></dt>
+<dd><p>Creates a Trigger object from a dictionary representation.</p>
+<section id="id78">
+<h4>Parameters:<a class="headerlink" href="#id78" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>data<span class="classifier">dict</span></dt><dd><p>A dictionary containing the Trigger data.</p>
+</dd>
+<dt>event :</dt><dd><p>The event associated with the Trigger instance.</p>
+</dd>
+</dl>
+</section>
+<section id="id79">
+<h4>Returns:<a class="headerlink" href="#id79" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>Trigger :</dt><dd><p>A new Trigger object initialized with the data from the dictionary.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.trigger_wait.Trigger.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/src/bootflow/trigger_wait.html#Trigger.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.trigger_wait.Trigger.to_dict" title="Link to this definition"></a></dt>
+<dd><p>Converts the Trigger object into a dictionary format.</p>
+<section id="id80">
+<h4>Returns:<a class="headerlink" href="#id80" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>dict :</dt><dd><p>A dictionary representation of the Trigger instance, including name and event.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.bootflow.trigger_wait.Wait">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.bootflow.trigger_wait.</span></span><span class="sig-name descname"><span class="pre">Wait</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trigger</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#src.bootflow.trigger_wait.Trigger" title="src.bootflow.trigger_wait.Trigger"><span class="pre">Trigger</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/trigger_wait.html#Wait"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.trigger_wait.Wait" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents a wait condition that depends on a trigger and calculates the waiting time until that trigger occurs.</p>
+<section id="id81">
+<h3>Attributes:<a class="headerlink" href="#id81" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>event :</dt><dd><p>The event that is associated with the wait condition.</p>
+</dd>
+<dt>processor :</dt><dd><p>The processor associated with the event.</p>
+</dd>
+<dt>trigger<span class="classifier">Trigger</span></dt><dd><p>The trigger that determines the wait time.</p>
+</dd>
+<dt>waiting_time<span class="classifier">float</span></dt><dd><p>The calculated waiting time.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.trigger_wait.Wait.calculate_waiting_time">
+<span class="sig-name descname"><span class="pre">calculate_waiting_time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/bootflow/trigger_wait.html#Wait.calculate_waiting_time"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.trigger_wait.Wait.calculate_waiting_time" title="Link to this definition"></a></dt>
+<dd><p>Calculates the waiting time based on the trigger’s time and the event’s duration.</p>
+<section id="id82">
+<h4>Returns:<a class="headerlink" href="#id82" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>Union[float, None] :</dt><dd><p>The calculated waiting time, or None if no trigger is set.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.trigger_wait.Wait.from_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bootflow</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/bootflow/trigger_wait.html#Wait.from_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.trigger_wait.Wait.from_dict" title="Link to this definition"></a></dt>
+<dd><p>Creates a Wait object from a dictionary representation.</p>
+<section id="id83">
+<h4>Parameters:<a class="headerlink" href="#id83" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>data<span class="classifier">dict</span></dt><dd><p>A dictionary containing the Wait data.</p>
+</dd>
+<dt>bootflow :</dt><dd><p>The boot flow instance containing available triggers.</p>
+</dd>
+<dt>event :</dt><dd><p>The event associated with the Wait instance.</p>
+</dd>
+</dl>
+</section>
+<section id="id84">
+<h4>Returns:<a class="headerlink" href="#id84" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>Union[Wait, str] :</dt><dd><p>A new Wait object initialized with the data from the dictionary, or a string if the trigger is not found.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.bootflow.trigger_wait.Wait.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/src/bootflow/trigger_wait.html#Wait.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.bootflow.trigger_wait.Wait.to_dict" title="Link to this definition"></a></dt>
+<dd><p>Converts the Wait object into a dictionary format.</p>
+<section id="id85">
+<h4>Returns:<a class="headerlink" href="#id85" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>dict :</dt><dd><p>A dictionary representation of the Wait instance, including trigger information.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+</section>
+<section id="module-src.bootflow">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-src.bootflow" title="Link to this heading"></a></h2>
+<p>Bootflow package for handling boot sequence elements and events.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="src.html" class="btn btn-neutral float-left" title="src package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="src.ui.html" class="btn btn-neutral float-right" title="src.ui package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Vincent Tremmel.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

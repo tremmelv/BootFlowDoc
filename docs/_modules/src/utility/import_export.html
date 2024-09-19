@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.utility.import_export &mdash; BootFlowTool 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            BootFlowTool
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">BootFlow</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">BootFlowTool</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">src.utility.import_export</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for src.utility.import_export</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">tkinter</span> <span class="k">as</span> <span class="nn">tk</span>
+<span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">filedialog</span>
+<span class="kn">from</span> <span class="nn">src.bootflow.boot_flow</span> <span class="kn">import</span> <span class="n">BootFlow</span>
+
+<span class="c1"># Global variable to store the default file path</span>
+<span class="n">default_file_path</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="save_bootflow"><a class="viewcode-back" href="../../../src.utility.html#src.utility.import_export.save_bootflow">[docs]</a><span class="k">def</span> <span class="nf">save_bootflow</span><span class="p">(</span><span class="n">bootflow</span><span class="p">:</span> <span class="n">BootFlow</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Save the given BootFlow instance to a JSON file.</span>
+
+<span class="sd">    If `default_file_path` is not set, the user is prompted to choose a file path. </span>
+<span class="sd">    If `default_file_path` is set, the BootFlow is saved to that path.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        bootflow (BootFlow): The BootFlow instance to be saved.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">default_file_path</span>
+    
+    <span class="k">if</span> <span class="n">default_file_path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Ask for the file name and path the first time</span>
+        <span class="n">file_path</span> <span class="o">=</span> <span class="n">filedialog</span><span class="o">.</span><span class="n">asksaveasfilename</span><span class="p">(</span>
+            <span class="n">defaultextension</span><span class="o">=</span><span class="s2">&quot;.json&quot;</span><span class="p">,</span>
+            <span class="n">filetypes</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;JSON files&quot;</span><span class="p">,</span> <span class="s2">&quot;*.json&quot;</span><span class="p">)],</span>
+            <span class="n">initialdir</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">)</span>  <span class="c1"># Default to the user&#39;s home directory</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">file_path</span><span class="p">:</span>
+            <span class="n">default_file_path</span> <span class="o">=</span> <span class="n">file_path</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+                <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">bootflow</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(),</span> <span class="n">file</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Save using the default file path</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">default_file_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+            <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">bootflow</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(),</span> <span class="n">file</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="save_as_bootflow"><a class="viewcode-back" href="../../../src.utility.html#src.utility.import_export.save_as_bootflow">[docs]</a><span class="k">def</span> <span class="nf">save_as_bootflow</span><span class="p">(</span><span class="n">bootflow</span><span class="p">:</span> <span class="n">BootFlow</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Prompt the user to choose a file path and save the BootFlow instance to that file.</span>
+
+<span class="sd">    The `default_file_path` is updated to the new file path chosen by the user.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        bootflow (BootFlow): The BootFlow instance to be saved.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">default_file_path</span>
+    <span class="n">bootflow_data</span> <span class="o">=</span> <span class="n">bootflow</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+    <span class="n">file_path</span> <span class="o">=</span> <span class="n">filedialog</span><span class="o">.</span><span class="n">asksaveasfilename</span><span class="p">(</span><span class="n">defaultextension</span><span class="o">=</span><span class="s2">&quot;.json&quot;</span><span class="p">,</span> <span class="n">filetypes</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;JSON files&quot;</span><span class="p">,</span> <span class="s2">&quot;*.json&quot;</span><span class="p">)])</span>
+    <span class="k">if</span> <span class="n">file_path</span><span class="p">:</span>
+        <span class="n">default_file_path</span> <span class="o">=</span> <span class="n">file_path</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+            <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">bootflow_data</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="load_bootflow"><a class="viewcode-back" href="../../../src.utility.html#src.utility.import_export.load_bootflow">[docs]</a><span class="k">def</span> <span class="nf">load_bootflow</span><span class="p">(</span><span class="n">callback</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Prompt the user to choose a file and load a BootFlow instance from that file.</span>
+
+<span class="sd">    The file must be a JSON file containing BootFlow data. The loaded BootFlow instance</span>
+<span class="sd">    is passed to the provided callback function.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        callback (function): A function to be called with the loaded BootFlow instance.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">default_file_path</span>
+    <span class="n">file_path</span> <span class="o">=</span> <span class="n">filedialog</span><span class="o">.</span><span class="n">askopenfilename</span><span class="p">(</span><span class="n">filetypes</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;JSON files&quot;</span><span class="p">,</span> <span class="s2">&quot;*.json&quot;</span><span class="p">)])</span>
+    <span class="k">if</span> <span class="n">file_path</span><span class="p">:</span>
+        <span class="n">default_file_path</span> <span class="o">=</span> <span class="n">file_path</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+            <span class="n">bootflow_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+        <span class="n">bootflow</span> <span class="o">=</span> <span class="n">BootFlow</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">bootflow_data</span><span class="p">)</span>
+        <span class="n">callback</span><span class="p">(</span><span class="n">bootflow</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="new_boot_flow"><a class="viewcode-back" href="../../../src.utility.html#src.utility.import_export.new_boot_flow">[docs]</a><span class="k">def</span> <span class="nf">new_boot_flow</span><span class="p">(</span><span class="n">old_bootflow</span> <span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Save the current BootFlow instance and create a new BootFlow instance.</span>
+
+<span class="sd">    The current BootFlow instance is saved to the default file path, and a new BootFlow</span>
+<span class="sd">    instance is created and passed to the provided callback function.</span>
+
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    -----------</span>
+<span class="sd">        old_bootflow (BootFlow): The current BootFlow instance to be saved.</span>
+<span class="sd">        callback (function): A function to be called with the new BootFlow instance.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">save_bootflow</span><span class="p">(</span><span class="n">old_bootflow</span><span class="p">)</span>
+    <span class="n">callback</span><span class="p">(</span><span class="n">BootFlow</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="load_bootflow_from_directory"><a class="viewcode-back" href="../../../src.utility.html#src.utility.import_export.load_bootflow_from_directory">[docs]</a><span class="k">def</span> <span class="nf">load_bootflow_from_directory</span><span class="p">(</span><span class="n">directory_path</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load a BootFlow instance from a JSON file located in the specified directory.</span>
+
+<span class="sd">    The file is expected to be named &#39;bootflow.json&#39;. If the file is found and successfully</span>
+<span class="sd">    read, a BootFlow instance is created from the data. Otherwise, a message is printed,</span>
+<span class="sd">    and `None` is returned.</span>
+
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    -----------</span>
+<span class="sd">        directory_path (str): The path to the directory containing the &#39;bootflow.json&#39; file.</span>
+
+
+<span class="sd">    Returns:</span>
+<span class="sd">    --------</span>
+<span class="sd">        BootFlow or None: A BootFlow instance if the file was found and loaded; otherwise, None.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">directory_path</span><span class="p">,</span> <span class="s1">&#39;bootflow.json&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+            <span class="n">bootflow_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">BootFlow</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">bootflow_data</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No bootflow.json found in </span><span class="si">{</span><span class="n">directory_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Vincent Tremmel.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.bootflow.size_operation &mdash; BootFlowTool 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            BootFlowTool
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">BootFlow</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">BootFlowTool</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">src.bootflow.size_operation</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for src.bootflow.size_operation</h1><div class="highlight"><pre>
+<span></span><span class="c1"># bootflow/size_operation.py</span>
+<span class="kn">from</span> <span class="nn">src.bootflow.size_event</span> <span class="kn">import</span> <span class="n">SizeEvent</span>
+<span class="kn">from</span> <span class="nn">src.bootflow.software</span> <span class="kn">import</span> <span class="n">Software</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+<div class="viewcode-block" id="SizeOperation"><a class="viewcode-back" href="../../../src.bootflow.html#src.bootflow.size_operation.SizeOperation">[docs]</a><span class="k">class</span> <span class="nc">SizeOperation</span><span class="p">(</span><span class="n">SizeEvent</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents an operation in the boot flow that involves the processing of software </span>
+<span class="sd">    based on its size and a specified operation speed.</span>
+
+<span class="sd">    Inherits from:</span>
+<span class="sd">    --------------</span>
+<span class="sd">    SizeEvent : The base class for events related to size-based operations.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">    -----------</span>
+<span class="sd">    operationSpeed : float or str</span>
+<span class="sd">        The speed at which the size operation is performed. Can be a direct value or a variable name.</span>
+<span class="sd">    duration : float or str</span>
+<span class="sd">        The calculated duration of the operation in milliseconds.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">software</span><span class="p">:</span> <span class="n">Software</span><span class="p">,</span> <span class="n">operationSpeed</span><span class="p">,</span> <span class="n">processor</span><span class="p">,</span> <span class="n">comment</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a SizeOperation object.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        name : str</span>
+<span class="sd">            The name of the size operation event.</span>
+<span class="sd">        software : Software</span>
+<span class="sd">            The software associated with the size operation.</span>
+<span class="sd">        operationSpeed : float or str</span>
+<span class="sd">            The speed at which the operation is performed. Can be a direct value or a variable name.</span>
+<span class="sd">        processor :</span>
+<span class="sd">            The processor associated with this event.</span>
+<span class="sd">        comment : str, optional</span>
+<span class="sd">            An optional comment or description of the event. Defaults to &quot;&quot;.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">software</span><span class="p">,</span> <span class="n">processor</span><span class="p">,</span> <span class="n">comment</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">operationSpeed</span> <span class="o">=</span> <span class="n">operationSpeed</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">duration</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate_duration</span><span class="p">()</span>
+
+<div class="viewcode-block" id="SizeOperation.calculate_duration"><a class="viewcode-back" href="../../../src.bootflow.html#src.bootflow.size_operation.SizeOperation.calculate_duration">[docs]</a>    <span class="k">def</span> <span class="nf">calculate_duration</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculates the duration of the size operation based on the software size </span>
+<span class="sd">        and the operation speed.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        --------</span>
+<span class="sd">        float or str :</span>
+<span class="sd">            The duration of the operation in milliseconds, or &quot;-&quot; if the size or speed is unavailable or the software was deleted.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">software</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">software</span><span class="o">.</span><span class="n">get_size</span><span class="p">(),</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_operation_speed</span><span class="p">(),</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s2">&quot;-&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">software</span><span class="o">.</span><span class="n">get_size</span><span class="p">()</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_operation_speed</span><span class="p">())</span> <span class="o">*</span> <span class="mf">1e3</span></div>
+    
+<div class="viewcode-block" id="SizeOperation.get_operation_speed"><a class="viewcode-back" href="../../../src.bootflow.html#src.bootflow.size_operation.SizeOperation.get_operation_speed">[docs]</a>    <span class="k">def</span> <span class="nf">get_operation_speed</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieves the operation speed. If the speed is defined as a variable, </span>
+<span class="sd">        it checks and retrieves the value from the processor&#39;s boot flow variables.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        --------</span>
+<span class="sd">        float or str :</span>
+<span class="sd">            The operation speed as a float, or &quot;TBD&quot; if the value is not yet determined.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">operationSpeed</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">check_variable_syntax</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">operationSpeed</span><span class="p">)</span>
+            <span class="n">variable_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">operationSpeed</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;$&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">variable_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">processor</span><span class="o">.</span><span class="n">boot_flow</span><span class="o">.</span><span class="n">variables</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">processor</span><span class="o">.</span><span class="n">boot_flow</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="n">variable_name</span><span class="p">]</span>
+                <span class="k">return</span> <span class="n">value</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">processor</span><span class="o">.</span><span class="n">boot_flow</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="n">variable_name</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;TBD&quot;</span>
+                <span class="k">return</span> <span class="s2">&quot;TBD&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">operationSpeed</span></div>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a string representation of the SizeOperation object.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        --------</span>
+<span class="sd">        str :</span>
+<span class="sd">            A string that represents the SizeOperation event.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;SizeOperation(name=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">, software=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">software</span><span class="si">}</span><span class="s2">, operationSpeed=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">operationSpeed</span><span class="si">}</span><span class="s2">, processor=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">processor</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">)&quot;</span>
+    
+<div class="viewcode-block" id="SizeOperation.to_dict"><a class="viewcode-back" href="../../../src.bootflow.html#src.bootflow.size_operation.SizeOperation.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Converts the SizeOperation object into a dictionary format.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        --------</span>
+<span class="sd">        dict :</span>
+<span class="sd">            A dictionary representation of the SizeOperation event, including type, name, software, operation speed, comment, and group.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;SizeOperation&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+            <span class="s2">&quot;software&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">software</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(),</span>
+            <span class="s2">&quot;operationSpeed&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">operationSpeed</span><span class="p">,</span>
+            <span class="s2">&quot;comment&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">comment</span><span class="p">,</span>
+            <span class="s2">&quot;group&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">group</span><span class="o">.</span><span class="n">name</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">group</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="p">}</span></div>
+
+<div class="viewcode-block" id="SizeOperation.from_dict"><a class="viewcode-back" href="../../../src.bootflow.html#src.bootflow.size_operation.SizeOperation.from_dict">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_dict</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">processor</span><span class="p">,</span> <span class="n">boot_flow</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a SizeOperation object from a dictionary representation.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        data : dict</span>
+<span class="sd">            A dictionary containing the SizeOperation event data.</span>
+<span class="sd">        processor :</span>
+<span class="sd">            The processor associated with the SizeOperation event.</span>
+<span class="sd">        boot_flow :</span>
+<span class="sd">            The boot flow object containing available software and groups.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        --------</span>
+<span class="sd">        SizeOperation :</span>
+<span class="sd">            A new SizeOperation object initialized with the data from the dictionary.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">software_name</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;software&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+        <span class="n">used_software</span> <span class="o">=</span> <span class="n">boot_flow</span><span class="o">.</span><span class="n">software</span><span class="p">[</span><span class="n">software_name</span><span class="p">]</span>
+        <span class="n">new_event</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">used_software</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;operationSpeed&quot;</span><span class="p">],</span> <span class="n">processor</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;comment&quot;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;group&quot;</span><span class="p">]:</span>
+            <span class="n">group</span> <span class="o">=</span> <span class="n">boot_flow</span><span class="o">.</span><span class="n">groups</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;group&quot;</span><span class="p">]]</span>
+            <span class="n">group</span><span class="o">.</span><span class="n">add_to_group</span><span class="p">(</span><span class="n">new_event</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">new_event</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Vincent Tremmel.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

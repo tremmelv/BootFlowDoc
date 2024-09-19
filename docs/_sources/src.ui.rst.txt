@@ -1,0 +1,36 @@
+src.ui package
+==============
+
+Class Diagram
+-------------
+
+.. image:: ..\\class_diagram\\classes_BootFlowTool_ui.svg
+   :width: 800
+
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   src.ui.tabs
+
+Submodules
+----------
+
+src.ui.boot\_flow\_app module
+-----------------------------
+
+.. automodule:: src.ui.boot_flow_app
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: src.ui
+   :members:
+   :undoc-members:
+   :show-inheritance:

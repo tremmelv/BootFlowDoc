@@ -1,0 +1,69 @@
+src.ui.tabs package
+===================
+
+Submodules
+----------
+
+src.ui.tabs.base\_tab module
+----------------------------
+
+.. automodule:: src.ui.tabs.base_tab
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.ui.tabs.boot\_flow\_tab module
+----------------------------------
+
+.. automodule:: src.ui.tabs.boot_flow_tab
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.ui.tabs.init\_tab module
+----------------------------
+
+.. automodule:: src.ui.tabs.init_tab
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.ui.tabs.interfaces\_tab module
+----------------------------------
+
+.. automodule:: src.ui.tabs.interfaces_tab
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.ui.tabs.operations\_tab module
+----------------------------------
+
+.. automodule:: src.ui.tabs.operations_tab
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.ui.tabs.software\_tab module
+--------------------------------
+
+.. automodule:: src.ui.tabs.software_tab
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.ui.tabs.transfers\_tab module
+---------------------------------
+
+.. automodule:: src.ui.tabs.transfers_tab
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: src.ui.tabs
+   :members:
+   :undoc-members:
+   :show-inheritance:

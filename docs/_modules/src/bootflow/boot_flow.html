@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.bootflow.boot_flow &mdash; BootFlowTool 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            BootFlowTool
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">BootFlow</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">BootFlowTool</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">src.bootflow.boot_flow</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for src.bootflow.boot_flow</h1><div class="highlight"><pre>
+<span></span><span class="c1"># bootflow/boot_flow.py</span>
+<span class="kn">from</span> <span class="nn">src.bootflow.boot_event</span> <span class="kn">import</span> <span class="n">BootEvent</span>
+<span class="kn">from</span> <span class="nn">src.bootflow.time_event</span> <span class="kn">import</span> <span class="n">TimeEvent</span>
+<span class="kn">from</span> <span class="nn">src.bootflow.program_transfer</span> <span class="kn">import</span> <span class="n">ProgramTransfer</span>
+<span class="kn">from</span> <span class="nn">src.bootflow.size_event</span> <span class="kn">import</span> <span class="n">SizeEvent</span>
+<span class="kn">from</span> <span class="nn">src.bootflow.size_operation</span> <span class="kn">import</span> <span class="n">SizeOperation</span>
+<span class="kn">from</span> <span class="nn">src.bootflow.interface</span> <span class="kn">import</span> <span class="n">Interface</span>
+<span class="kn">from</span> <span class="nn">src.bootflow.processor</span> <span class="kn">import</span> <span class="n">Processor</span>
+<span class="kn">from</span> <span class="nn">src.bootflow.trigger_wait</span> <span class="kn">import</span> <span class="n">Trigger</span><span class="p">,</span> <span class="n">Wait</span>
+<span class="kn">from</span> <span class="nn">src.bootflow.name_registry</span> <span class="kn">import</span> <span class="n">NameRegistry</span>
+<span class="kn">from</span> <span class="nn">src.bootflow.software</span> <span class="kn">import</span> <span class="n">Software</span>
+<span class="kn">from</span> <span class="nn">src.bootflow.group</span> <span class="kn">import</span> <span class="n">Group</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Union</span>
+
+<div class="viewcode-block" id="BootFlow"><a class="viewcode-back" href="../../../src.bootflow.html#src.bootflow.boot_flow.BootFlow">[docs]</a><span class="k">class</span> <span class="nc">BootFlow</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class to represent the boot flow, managing processors, interfaces, triggers, groups, variables, and software.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">    -----------</span>
+<span class="sd">    processors : List[Processor]</span>
+<span class="sd">        A list of processors in the boot flow.</span>
+<span class="sd">    interfaces : List[Interface]</span>
+<span class="sd">        A list of interfaces in the boot flow.</span>
+<span class="sd">    triggers : Dict[str, Trigger]</span>
+<span class="sd">        A dictionary of triggers keyed by their names.</span>
+<span class="sd">    groups : Dict[str, Group]</span>
+<span class="sd">        A dictionary of groups keyed by their names.</span>
+<span class="sd">    variables : Dict[str, float]</span>
+<span class="sd">        A dictionary of variables and their values.</span>
+<span class="sd">    software : Dict[str, Software]</span>
+<span class="sd">        A dictionary of software keyed by their names.</span>
+<span class="sd">    main_processor : Union[Processor, None]</span>
+<span class="sd">        The main processor in the boot flow.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a BootFlow instance with empty lists and dictionaries for processors, interfaces, triggers, groups, variables, and software.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">processors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Processor</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interfaces</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Interface</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">triggers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Trigger</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">groups</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Group</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">variables</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">software</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Software</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">main_processor</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Processor</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="BootFlow.set_main_processor"><a class="viewcode-back" href="../../../src.bootflow.html#src.bootflow.boot_flow.BootFlow.set_main_processor">[docs]</a>    <span class="k">def</span> <span class="nf">set_main_processor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">processor</span><span class="p">:</span> <span class="n">Processor</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sets the main processor of the boot flow.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        processor : Processor</span>
+<span class="sd">            The processor to be set as the main processor.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">main_processor</span> <span class="o">=</span> <span class="n">processor</span></div>
+
+<div class="viewcode-block" id="BootFlow.add_interface"><a class="viewcode-back" href="../../../src.bootflow.html#src.bootflow.boot_flow.BootFlow.add_interface">[docs]</a>    <span class="k">def</span> <span class="nf">add_interface</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">interface</span><span class="p">:</span> <span class="n">Interface</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds an interface to the boot flow.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        interface : Interface</span>
+<span class="sd">            The interface to be added.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interfaces</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">interface</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BootFlow.add_group"><a class="viewcode-back" href="../../../src.bootflow.html#src.bootflow.boot_flow.BootFlow.add_group">[docs]</a>    <span class="k">def</span> <span class="nf">add_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group</span><span class="p">:</span> <span class="n">Group</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds a group to the boot flow.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        group : Group</span>
+<span class="sd">            The group to be added.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">groups</span><span class="p">[</span><span class="n">group</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">group</span></div>
+
+<div class="viewcode-block" id="BootFlow.add_software"><a class="viewcode-back" href="../../../src.bootflow.html#src.bootflow.boot_flow.BootFlow.add_software">[docs]</a>    <span class="k">def</span> <span class="nf">add_software</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">software</span><span class="p">:</span> <span class="n">Software</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds a software to the boot flow.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        software : Software</span>
+<span class="sd">            The software to be added.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">software</span><span class="p">[</span><span class="n">software</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">software</span></div>
+
+<div class="viewcode-block" id="BootFlow.add_processor"><a class="viewcode-back" href="../../../src.bootflow.html#src.bootflow.boot_flow.BootFlow.add_processor">[docs]</a>    <span class="k">def</span> <span class="nf">add_processor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">processor</span><span class="p">:</span> <span class="n">Processor</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds a processor to the boot flow and sets it as the main processor if it&#39;s the first one added.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        processor : Processor</span>
+<span class="sd">            The processor to be added.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">processors</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_main_processor</span><span class="p">(</span><span class="n">processor</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">processors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">processor</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BootFlow.get_interface"><a class="viewcode-back" href="../../../src.bootflow.html#src.bootflow.boot_flow.BootFlow.get_interface">[docs]</a>    <span class="k">def</span> <span class="nf">get_interface</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">interfaceName</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Interface</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieves an interface by its name.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        interfaceName : str</span>
+<span class="sd">            The name of the interface to be retrieved.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        --------</span>
+<span class="sd">        Union[Interface, None]</span>
+<span class="sd">            The interface if found, otherwise None.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">interface</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">interfaces</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">interface</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">interfaceName</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">interface</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="BootFlow.get_processor"><a class="viewcode-back" href="../../../src.bootflow.html#src.bootflow.boot_flow.BootFlow.get_processor">[docs]</a>    <span class="k">def</span> <span class="nf">get_processor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">processor_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Processor</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieves a processor by its name.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        processor_name : str</span>
+<span class="sd">            The name of the processor to be retrieved.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        --------</span>
+<span class="sd">        Union[Processor, None]</span>
+<span class="sd">            The processor if found, otherwise None.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">processor</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">processors</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">processor</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">processor_name</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">processor</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="BootFlow.move_element"><a class="viewcode-back" href="../../../src.bootflow.html#src.bootflow.boot_flow.BootFlow.move_element">[docs]</a>    <span class="k">def</span> <span class="nf">move_element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">new_index</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">processor_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Moves an element within a processor&#39;s boot events from one index to another.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        index : int</span>
+<span class="sd">            The current index of the element.</span>
+<span class="sd">        new_index : int</span>
+<span class="sd">            The new index of the element.</span>
+<span class="sd">        processor_name : str</span>
+<span class="sd">            The name of the processor containing the element.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">processor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_processor</span><span class="p">(</span><span class="n">processor_name</span><span class="p">)</span>
+        <span class="n">processor</span><span class="o">.</span><span class="n">move_element</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">new_index</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BootFlow.remove_item"><a class="viewcode-back" href="../../../src.bootflow.html#src.bootflow.boot_flow.BootFlow.remove_item">[docs]</a>    <span class="k">def</span> <span class="nf">remove_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">processor_name</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Removes an item from the boot flow or a specific processor.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        item : object</span>
+<span class="sd">            The item to be removed.</span>
+<span class="sd">        processor_name : Union[str, None], optional</span>
+<span class="sd">            The name of the processor from which the item should be removed (default is None).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">Interface</span><span class="p">)</span> <span class="ow">and</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">interfaces</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">interfaces</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">processor_name</span><span class="p">:</span>
+            <span class="n">processor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_processor</span><span class="p">(</span><span class="n">processor_name</span><span class="p">)</span>
+            <span class="n">processor</span><span class="o">.</span><span class="n">remove_item</span><span class="p">(</span><span class="n">item</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BootFlow.update_duration"><a class="viewcode-back" href="../../../src.bootflow.html#src.bootflow.boot_flow.BootFlow.update_duration">[docs]</a>    <span class="k">def</span> <span class="nf">update_duration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Updates the duration of events in all processors within the boot flow.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">processor</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">processors</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">processor</span><span class="o">.</span><span class="n">boot_events</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">ProgramTransfer</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">SizeOperation</span><span class="p">):</span>
+                    <span class="n">event</span><span class="o">.</span><span class="n">duration</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">calculate_duration</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="BootFlow.get_event_by_name"><a class="viewcode-back" href="../../../src.bootflow.html#src.bootflow.boot_flow.BootFlow.get_event_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_event_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">BootEvent</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieves an event by its name.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        name : str</span>
+<span class="sd">            The name of the event to be retrieved.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        --------</span>
+<span class="sd">        Union[BootEvent, None]</span>
+<span class="sd">            The event if found, otherwise None.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">processor</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">processors</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">processor</span><span class="o">.</span><span class="n">boot_events</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">event</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="BootFlow.del_event_by_name"><a class="viewcode-back" href="../../../src.bootflow.html#src.bootflow.boot_flow.BootFlow.del_event_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">del_event_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Deletes an event by its name.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        name : str</span>
+<span class="sd">            The name of the event to be deleted.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">processor</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">processors</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">processor</span><span class="o">.</span><span class="n">boot_events</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">:</span>
+                    <span class="n">processor</span><span class="o">.</span><span class="n">boot_events</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+                    <span class="n">event</span><span class="o">.</span><span class="n">cleanup</span><span class="p">()</span>
+                    <span class="k">del</span> <span class="n">event</span></div>
+
+<div class="viewcode-block" id="BootFlow.del_group_by_name"><a class="viewcode-back" href="../../../src.bootflow.html#src.bootflow.boot_flow.BootFlow.del_group_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">del_group_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Deletes a group by its name.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        name : str</span>
+<span class="sd">            The name of the group to be deleted.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">processor</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">processors</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">processor</span><span class="o">.</span><span class="n">boot_events</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">group</span> <span class="ow">and</span> <span class="n">event</span><span class="o">.</span><span class="n">group</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">:</span>
+                    <span class="n">event</span><span class="o">.</span><span class="n">group</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">groups</span><span class="p">[</span><span class="n">name</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="BootFlow.del_software"><a class="viewcode-back" href="../../../src.bootflow.html#src.bootflow.boot_flow.BootFlow.del_software">[docs]</a>    <span class="k">def</span> <span class="nf">del_software</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Deletes a software by its name.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        name : str</span>
+<span class="sd">            The name of the sofware to be deleted.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">processor</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">processors</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">processor</span><span class="o">.</span><span class="n">boot_events</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">SizeEvent</span><span class="p">)</span> <span class="ow">and</span> <span class="n">event</span><span class="o">.</span><span class="n">software</span> <span class="ow">and</span> <span class="n">event</span><span class="o">.</span><span class="n">software</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">:</span>
+                    <span class="n">event</span><span class="o">.</span><span class="n">software</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">software</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">software</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">software</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+        <span class="n">software</span><span class="o">.</span><span class="n">cleanup</span><span class="p">()</span>
+        <span class="k">del</span> <span class="n">software</span></div>
+
+
+<div class="viewcode-block" id="BootFlow.del_interface"><a class="viewcode-back" href="../../../src.bootflow.html#src.bootflow.boot_flow.BootFlow.del_interface">[docs]</a>    <span class="k">def</span> <span class="nf">del_interface</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Deletes an interface by its name.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        name : str</span>
+<span class="sd">            The name of the interface to be deleted.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">processor</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">processors</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">processor</span><span class="o">.</span><span class="n">boot_events</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">ProgramTransfer</span><span class="p">)</span> <span class="ow">and</span> <span class="n">event</span><span class="o">.</span><span class="n">interface</span> <span class="ow">and</span> <span class="n">event</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">:</span>
+                    <span class="n">event</span><span class="o">.</span><span class="n">interface</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">interface</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_interface</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interfaces</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">interface</span><span class="p">)</span>
+        <span class="n">interface</span><span class="o">.</span><span class="n">cleanup</span><span class="p">()</span>
+        <span class="k">del</span> <span class="n">interface</span></div>
+
+    
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a string representation of the BootFlow instance.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        --------</span>
+<span class="sd">        str</span>
+<span class="sd">            A string representation of the BootFlow instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">interfaces_str</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">interfaces</span><span class="p">)</span>
+        <span class="n">processors_str</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">processors</span><span class="p">)</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;interfaces=[</span><span class="si">{</span><span class="n">interfaces_str</span><span class="si">}</span><span class="s2">], processors=[</span><span class="si">{</span><span class="n">processors_str</span><span class="si">}</span><span class="s2">], triggers=[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">triggers</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span><span class="si">}</span><span class="s2">])&quot;</span>
+
+<div class="viewcode-block" id="BootFlow.to_dict"><a class="viewcode-back" href="../../../src.bootflow.html#src.bootflow.boot_flow.BootFlow.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Converts the BootFlow instance to a dictionary.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        --------</span>
+<span class="sd">        Dict</span>
+<span class="sd">            A dictionary representation of the BootFlow instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;interfaces&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">interfaces</span><span class="p">],</span>
+            <span class="s2">&quot;processors&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">processors</span><span class="p">],</span>
+            <span class="s2">&quot;triggers&quot;</span><span class="p">:</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">trigger</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">trigger</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">triggers</span><span class="o">.</span><span class="n">items</span><span class="p">()},</span>
+            <span class="s2">&quot;groups&quot;</span><span class="p">:</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">group</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">items</span><span class="p">()},</span>
+            <span class="s2">&quot;variables&quot;</span><span class="p">:</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">value</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">variables</span><span class="o">.</span><span class="n">items</span><span class="p">()},</span>
+            <span class="s2">&quot;software&quot;</span><span class="p">:</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">software</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">software</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">software</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="p">}</span></div>
+
+<div class="viewcode-block" id="BootFlow.from_dict"><a class="viewcode-back" href="../../../src.bootflow.html#src.bootflow.boot_flow.BootFlow.from_dict">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_dict</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a BootFlow instance from a dictionary.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        data : Dict</span>
+<span class="sd">            The dictionary containing boot flow data.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        --------</span>
+<span class="sd">        BootFlow</span>
+<span class="sd">            The BootFlow instance created from the dictionary.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">bootflow</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">()</span>
+        <span class="n">NameRegistry</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;variables&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">bootflow</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">for</span> <span class="n">interface_data</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;interfaces&quot;</span><span class="p">]:</span>
+            <span class="n">bootflow</span><span class="o">.</span><span class="n">add_interface</span><span class="p">(</span><span class="n">Interface</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">interface_data</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">software_data</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;software&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">bootflow</span><span class="o">.</span><span class="n">add_software</span><span class="p">(</span><span class="n">Software</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">software_data</span><span class="p">,</span> <span class="n">bootflow</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">group_data</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;groups&quot;</span><span class="p">]:</span>
+            <span class="n">bootflow</span><span class="o">.</span><span class="n">add_group</span><span class="p">(</span><span class="n">Group</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">group_data</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">processor_data</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;processors&quot;</span><span class="p">]:</span>
+            <span class="n">bootflow</span><span class="o">.</span><span class="n">add_processor</span><span class="p">(</span><span class="n">Processor</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">processor_data</span><span class="p">,</span> <span class="n">bootflow</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">processor</span> <span class="ow">in</span> <span class="n">bootflow</span><span class="o">.</span><span class="n">processors</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">processor</span><span class="o">.</span><span class="n">boot_events</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">TimeEvent</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">wait</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                        <span class="n">trigger</span> <span class="o">=</span> <span class="n">bootflow</span><span class="o">.</span><span class="n">triggers</span><span class="p">[</span><span class="n">event</span><span class="o">.</span><span class="n">wait</span><span class="p">]</span>
+                        <span class="n">event</span><span class="o">.</span><span class="n">wait</span> <span class="o">=</span> <span class="n">Wait</span><span class="p">(</span><span class="n">trigger</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">bootflow</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Vincent Tremmel.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

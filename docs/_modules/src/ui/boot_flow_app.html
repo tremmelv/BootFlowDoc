@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.ui.boot_flow_app &mdash; BootFlowTool 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            BootFlowTool
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">BootFlow</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">BootFlowTool</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">src.ui.boot_flow_app</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for src.ui.boot_flow_app</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">customtkinter</span> <span class="k">as</span> <span class="nn">ctk</span>
+<span class="kn">import</span> <span class="nn">tkinter</span> <span class="k">as</span> <span class="nn">tk</span>
+<span class="kn">from</span> <span class="nn">src.ui.tabs.init_tab</span> <span class="kn">import</span> <span class="n">InitTab</span>
+<span class="kn">from</span> <span class="nn">src.ui.tabs.software_tab</span> <span class="kn">import</span> <span class="n">SoftwareTab</span>
+<span class="kn">from</span> <span class="nn">src.ui.tabs.transfers_tab</span> <span class="kn">import</span> <span class="n">TransfersTab</span>
+<span class="kn">from</span> <span class="nn">src.ui.tabs.boot_flow_tab</span> <span class="kn">import</span> <span class="n">BootFlowTab</span>
+<span class="kn">from</span> <span class="nn">src.ui.tabs.interfaces_tab</span> <span class="kn">import</span> <span class="n">InterfacesTab</span>
+<span class="kn">from</span> <span class="nn">src.ui.tabs.operations_tab</span> <span class="kn">import</span> <span class="n">OperationsTab</span>
+<span class="kn">from</span> <span class="nn">src.ui.components.menus.menu_bar</span> <span class="kn">import</span> <span class="n">MenuBar</span>
+<span class="kn">from</span> <span class="nn">src.utility.import_export</span> <span class="kn">import</span> <span class="n">save_bootflow</span>
+
+<div class="viewcode-block" id="BootFlowApp"><a class="viewcode-back" href="../../../src.ui.html#src.ui.boot_flow_app.BootFlowApp">[docs]</a><span class="k">class</span> <span class="nc">BootFlowApp</span><span class="p">(</span><span class="n">ctk</span><span class="o">.</span><span class="n">CTk</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class representing the main application window for the BootFlow Manager.</span>
+<span class="sd">    This application manages the boot flow configuration and allows users to interact</span>
+<span class="sd">    with various aspects of the boot flow through different tabs.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">    -----------</span>
+<span class="sd">    theme : int</span>
+<span class="sd">        The current theme of the application. 0 for Dark mode, 1 for Light mode.</span>
+<span class="sd">    boot_flow : BootFlow</span>
+<span class="sd">        An instance of BootFlow that manages the application&#39;s boot flow data.</span>
+<span class="sd">    tab_view : ctk.CTkTabview</span>
+<span class="sd">        A tab view widget that holds various tabs for different functionalities.</span>
+<span class="sd">    boot_flow_tab_frame : BootFlowTab</span>
+<span class="sd">        The tab for managing and displaying boot flow configurations.</span>
+<span class="sd">    software_tab_frame : SoftwareTab</span>
+<span class="sd">        The tab for managing and displaying software configurations.</span>
+<span class="sd">    init_tab_frame : InitTab</span>
+<span class="sd">        The tab for managing and displaying initialisation configurations.</span>
+<span class="sd">    interface_tab_frame : InterfacesTab</span>
+<span class="sd">        The tab for managing and displaying interface configurations.</span>
+<span class="sd">    transfer_tab_frame : TransfersTab</span>
+<span class="sd">        The tab for managing and displaying program transfer events.</span>
+<span class="sd">    operations_tab_frame : OperationsTab</span>
+<span class="sd">        The tab for managing and displaying operations configurations.</span>
+<span class="sd">    menu_bar : MenuBar</span>
+<span class="sd">        The menu bar for the application, providing access to various functions.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">boot_flow</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes the BootFlowApp instance with the specified boot_flow.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        boot_flow : BootFlow</span>
+<span class="sd">            An instance of BootFlow that manages the application&#39;s boot flow data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">theme</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># 0 : Dark , 1 : Light</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">theme</span><span class="p">:</span>
+            <span class="n">ctk</span><span class="o">.</span><span class="n">set_appearance_mode</span><span class="p">(</span><span class="s2">&quot;Light&quot;</span><span class="p">)</span>  <span class="c1"># Modes: &quot;System&quot; (standard), &quot;Dark&quot;, &quot;Light&quot;</span>
+        <span class="k">else</span> <span class="p">:</span>
+            <span class="n">ctk</span><span class="o">.</span><span class="n">set_appearance_mode</span><span class="p">(</span><span class="s2">&quot;Dark&quot;</span><span class="p">)</span>  <span class="c1"># Modes: &quot;System&quot; (standard), &quot;Dark&quot;, &quot;Light&quot;</span>
+        <span class="n">ctk</span><span class="o">.</span><span class="n">set_default_color_theme</span><span class="p">(</span><span class="s2">&quot;dark-blue&quot;</span><span class="p">)</span>  <span class="c1"># Themes: &quot;blue&quot; (standard), &quot;green&quot;, &quot;dark-blue&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">iconbitmap</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;src\ui\components\img\renesas_icon.ico&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;BootFlow Manager&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">geometry</span><span class="p">(</span><span class="s2">&quot;1200x800&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">boot_flow</span> <span class="o">=</span> <span class="n">boot_flow</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">grid_rowconfigure</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">grid_columnconfigure</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">tab_view</span> <span class="o">=</span> <span class="n">ctk</span><span class="o">.</span><span class="n">CTkTabview</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tab_view</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;nsew&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">boot_flow_tab</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tab_view</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Bootflow&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">software_tab</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tab_view</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Software&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interface_tab</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tab_view</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Interfaces&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">init_tab</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tab_view</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Initialisations&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transfer_tab</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tab_view</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Transfers&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">operations_tab</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tab_view</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Operations&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">graph_tab</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tab_view</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Graph&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">boot_flow_tab_frame</span> <span class="o">=</span> <span class="n">BootFlowTab</span><span class="p">(</span><span class="n">master</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">boot_flow_tab</span><span class="p">,</span> <span class="n">boot_flow</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">boot_flow</span><span class="p">,</span> <span class="n">app</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">software_tab_frame</span> <span class="o">=</span> <span class="n">SoftwareTab</span><span class="p">(</span><span class="n">master</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">software_tab</span><span class="p">,</span> <span class="n">boot_flow</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">boot_flow</span><span class="p">,</span> <span class="n">app</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">init_tab_frame</span> <span class="o">=</span> <span class="n">InitTab</span><span class="p">(</span><span class="n">master</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">init_tab</span><span class="p">,</span> <span class="n">boot_flow</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">boot_flow</span><span class="p">,</span> <span class="n">app</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interface_tab_frame</span> <span class="o">=</span> <span class="n">InterfacesTab</span><span class="p">(</span><span class="n">master</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">interface_tab</span><span class="p">,</span> <span class="n">boot_flow</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">boot_flow</span><span class="p">,</span> <span class="n">app</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transfer_tab_frame</span> <span class="o">=</span> <span class="n">TransfersTab</span><span class="p">(</span><span class="n">master</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">transfer_tab</span><span class="p">,</span> <span class="n">boot_flow</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">boot_flow</span><span class="p">,</span> <span class="n">app</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">operations_tab_frame</span> <span class="o">=</span> <span class="n">OperationsTab</span><span class="p">(</span><span class="n">master</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">operations_tab</span><span class="p">,</span> <span class="n">boot_flow</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">boot_flow</span><span class="p">,</span> <span class="n">app</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">menu_bar</span> <span class="o">=</span> <span class="n">MenuBar</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s1">&#39;&lt;Control-s&gt;&#39;</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">save_bootflow</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">boot_flow</span><span class="p">))</span>
+
+<div class="viewcode-block" id="BootFlowApp.update_bootflow"><a class="viewcode-back" href="../../../src.ui.html#src.ui.boot_flow_app.BootFlowApp.update_bootflow">[docs]</a>    <span class="k">def</span> <span class="nf">update_bootflow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_bootflow</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Updates the boot flow across all tabs with the new_bootflow instance.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        new_bootflow : BootFlow</span>
+<span class="sd">            The new instance of BootFlow to be used for updating all tabs.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">boot_flow</span> <span class="o">=</span> <span class="n">new_bootflow</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">init_tab_frame</span><span class="o">.</span><span class="n">update_bootflow</span><span class="p">(</span><span class="n">new_bootflow</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">software_tab_frame</span><span class="o">.</span><span class="n">update_bootflow</span><span class="p">(</span><span class="n">new_bootflow</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interface_tab_frame</span><span class="o">.</span><span class="n">update_bootflow</span><span class="p">(</span><span class="n">new_bootflow</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transfer_tab_frame</span><span class="o">.</span><span class="n">update_bootflow</span><span class="p">(</span><span class="n">new_bootflow</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">operations_tab_frame</span><span class="o">.</span><span class="n">update_bootflow</span><span class="p">(</span><span class="n">new_bootflow</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">boot_flow_tab_frame</span><span class="o">.</span><span class="n">update_bootflow</span><span class="p">(</span><span class="n">new_bootflow</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BootFlowApp.update_listbox"><a class="viewcode-back" href="../../../src.ui.html#src.ui.boot_flow_app.BootFlowApp.update_listbox">[docs]</a>    <span class="k">def</span> <span class="nf">update_listbox</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Updates the listboxes in all tabs to reflect the current state of the boot flow.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">init_tab_frame</span><span class="o">.</span><span class="n">update_listbox</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">software_tab_frame</span><span class="o">.</span><span class="n">update_listbox</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interface_tab_frame</span><span class="o">.</span><span class="n">update_listbox</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transfer_tab_frame</span><span class="o">.</span><span class="n">update_listbox</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">operations_tab_frame</span><span class="o">.</span><span class="n">update_listbox</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">boot_flow_tab_frame</span><span class="o">.</span><span class="n">update_listbox</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="BootFlowApp.safe_str_to_float"><a class="viewcode-back" href="../../../src.ui.html#src.ui.boot_flow_app.BootFlowApp.safe_str_to_float">[docs]</a>    <span class="k">def</span> <span class="nf">safe_str_to_float</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Converts a string to a float, returning the original string if conversion fails.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        s : str</span>
+<span class="sd">            The string to be converted to a float.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        --------</span>
+<span class="sd">        float or str</span>
+<span class="sd">            The converted float value if successful, otherwise the original string.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">s</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Vincent Tremmel.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

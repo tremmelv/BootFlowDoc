@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.ui.tabs package &mdash; BootFlowTool 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="src.utility package" href="src.utility.html" />
+    <link rel="prev" title="src.ui package" href="src.ui.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            BootFlowTool
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">BootFlow</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="BootFlowTool.html">BootFlowTool module</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="src.html">src package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="src.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="src.bootflow.html">src.bootflow package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="src.ui.html">src.ui package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="src.utility.html">src.utility package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="src.html#module-src">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BootFlowTool</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">BootFlow</a></li>
+          <li class="breadcrumb-item"><a href="src.html">src package</a></li>
+          <li class="breadcrumb-item"><a href="src.ui.html">src.ui package</a></li>
+      <li class="breadcrumb-item active">src.ui.tabs package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/src.ui.tabs.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="src-ui-tabs-package">
+<h1>src.ui.tabs package<a class="headerlink" href="#src-ui-tabs-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-src.ui.tabs.base_tab">
+<span id="src-ui-tabs-base-tab-module"></span><h2>src.ui.tabs.base_tab module<a class="headerlink" href="#module-src.ui.tabs.base_tab" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.ui.tabs.base_tab.BaseTab">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.ui.tabs.base_tab.</span></span><span class="sig-name descname"><span class="pre">BaseTab</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CTkFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boot_flow</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="src.bootflow.html#src.bootflow.boot_flow.BootFlow" title="src.bootflow.boot_flow.BootFlow"><span class="pre">BootFlow</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">app</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/base_tab.html#BaseTab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.base_tab.BaseTab" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A base class for creating tabs in the application, intended to be subclassed by specific tabs.</p>
+<section id="attributes">
+<h3>Attributes:<a class="headerlink" href="#attributes" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>master<span class="classifier">ctk.CTkFrame</span></dt><dd><p>The parent frame in which the tab’s widgets are placed.</p>
+</dd>
+<dt>boot_flow<span class="classifier">BootFlow</span></dt><dd><p>An instance of BootFlow that the tab interacts with.</p>
+</dd>
+<dt>app<span class="classifier">object</span></dt><dd><p>A reference to the main application, allowing interaction with other parts of the app.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.base_tab.BaseTab.create_widgets">
+<span class="sig-name descname"><span class="pre">create_widgets</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/base_tab.html#BaseTab.create_widgets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.base_tab.BaseTab.create_widgets" title="Link to this definition"></a></dt>
+<dd><p>Creates the widgets for the tab. Intended to be overridden in child classes to add specific widgets.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.base_tab.BaseTab.get_processors">
+<span class="sig-name descname"><span class="pre">get_processors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/base_tab.html#BaseTab.get_processors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.base_tab.BaseTab.get_processors" title="Link to this definition"></a></dt>
+<dd><p>Retrieves the names of processors from the BootFlow instance.</p>
+<section id="returns">
+<h4>Returns:<a class="headerlink" href="#returns" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>List[str]</dt><dd><p>A list of processor names, or [“None”] if no processors are present.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.base_tab.BaseTab.on_tab_selected">
+<span class="sig-name descname"><span class="pre">on_tab_selected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/base_tab.html#BaseTab.on_tab_selected"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.base_tab.BaseTab.on_tab_selected" title="Link to this definition"></a></dt>
+<dd><p>Event handler for when the tab is selected, triggering updates to the combobox and listbox.</p>
+<section id="parameters">
+<h4>Parameters:<a class="headerlink" href="#parameters" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>event<span class="classifier">Event</span></dt><dd><p>The event object associated with the visibility change.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.base_tab.BaseTab.update_bootflow">
+<span class="sig-name descname"><span class="pre">update_bootflow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_bootflow</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/base_tab.html#BaseTab.update_bootflow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.base_tab.BaseTab.update_bootflow" title="Link to this definition"></a></dt>
+<dd><p>Updates the BootFlow instance and refreshes the listbox.</p>
+<section id="id1">
+<h4>Parameters:<a class="headerlink" href="#id1" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>new_bootflow<span class="classifier">BootFlow</span></dt><dd><p>The new BootFlow instance to be set.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.base_tab.BaseTab.update_combobox">
+<span class="sig-name descname"><span class="pre">update_combobox</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/base_tab.html#BaseTab.update_combobox"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.base_tab.BaseTab.update_combobox" title="Link to this definition"></a></dt>
+<dd><p>Updates the combobox with the list of processor names retrieved from the BootFlow instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.base_tab.BaseTab.update_listbox">
+<span class="sig-name descname"><span class="pre">update_listbox</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/base_tab.html#BaseTab.update_listbox"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.base_tab.BaseTab.update_listbox" title="Link to this definition"></a></dt>
+<dd><p>Updates the listbox in the tab. Intended to be overridden in child classes.</p>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+</section>
+<section id="module-src.ui.tabs.boot_flow_tab">
+<span id="src-ui-tabs-boot-flow-tab-module"></span><h2>src.ui.tabs.boot_flow_tab module<a class="headerlink" href="#module-src.ui.tabs.boot_flow_tab" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.ui.tabs.boot_flow_tab.BootFlowTab">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.ui.tabs.boot_flow_tab.</span></span><span class="sig-name descname"><span class="pre">BootFlowTab</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CTkFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boot_flow</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="src.bootflow.html#src.bootflow.boot_flow.BootFlow" title="src.bootflow.boot_flow.BootFlow"><span class="pre">BootFlow</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">app</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/boot_flow_tab.html#BootFlowTab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.boot_flow_tab.BootFlowTab" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#src.ui.tabs.base_tab.BaseTab" title="src.ui.tabs.base_tab.BaseTab"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseTab</span></code></a></p>
+<p>A class representing the BootFlow tab, inheriting from BaseTab.
+This tab provides functionality for managing processors within the boot flow, 
+and sceduling the different boot events.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.boot_flow_tab.BootFlowTab.add_processor">
+<span class="sig-name descname"><span class="pre">add_processor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/boot_flow_tab.html#BootFlowTab.add_processor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.boot_flow_tab.BootFlowTab.add_processor" title="Link to this definition"></a></dt>
+<dd><p>Adds a new processor to the BootFlow instance based on user input from the popup window.
+The new processor is also added to the BootFlow window’s treeview, and the popup is then closed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.boot_flow_tab.BootFlowTab.add_processor_popUp">
+<span class="sig-name descname"><span class="pre">add_processor_popUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/boot_flow_tab.html#BootFlowTab.add_processor_popUp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.boot_flow_tab.BootFlowTab.add_processor_popUp" title="Link to this definition"></a></dt>
+<dd><p>Opens a popup window that allows the user to add a new processor to the BootFlow.
+The popup contains input fields for the processor name and an optional comment.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.boot_flow_tab.BootFlowTab.create_widgets">
+<span class="sig-name descname"><span class="pre">create_widgets</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/boot_flow_tab.html#BootFlowTab.create_widgets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.boot_flow_tab.BootFlowTab.create_widgets" title="Link to this definition"></a></dt>
+<dd><p>Creates and configures the widgets for the tab, including the BootFlow window,
+navigation buttons (up, plus, down), and sets up the grid configuration for layout management.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.boot_flow_tab.BootFlowTab.on_tab_selected">
+<span class="sig-name descname"><span class="pre">on_tab_selected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/boot_flow_tab.html#BootFlowTab.on_tab_selected"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.boot_flow_tab.BootFlowTab.on_tab_selected" title="Link to this definition"></a></dt>
+<dd><p>Handles the event when the tab is selected. 
+This method triggers the update of the listbox to ensure it displays the most recent data.</p>
+<section id="id2">
+<h3>Parameters:<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>event<span class="classifier">Event</span></dt><dd><p>The event object associated with the tab selection.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.boot_flow_tab.BootFlowTab.update_listbox">
+<span class="sig-name descname"><span class="pre">update_listbox</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/boot_flow_tab.html#BootFlowTab.update_listbox"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.boot_flow_tab.BootFlowTab.update_listbox" title="Link to this definition"></a></dt>
+<dd><p>Updates the listbox (treeview) in the BootFlow window with the current processors.
+This method refreshes the displayed list to reflect any changes made to the BootFlow.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.ui.tabs.init_tab">
+<span id="src-ui-tabs-init-tab-module"></span><h2>src.ui.tabs.init_tab module<a class="headerlink" href="#module-src.ui.tabs.init_tab" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.ui.tabs.init_tab.InitTab">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.ui.tabs.init_tab.</span></span><span class="sig-name descname"><span class="pre">InitTab</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CTkFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boot_flow</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="src.bootflow.html#src.bootflow.boot_flow.BootFlow" title="src.bootflow.boot_flow.BootFlow"><span class="pre">BootFlow</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">app</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/init_tab.html#InitTab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.init_tab.InitTab" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#src.ui.tabs.base_tab.BaseTab" title="src.ui.tabs.base_tab.BaseTab"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseTab</span></code></a></p>
+<p>A class representing the initialization tab, inheriting from BaseTab. 
+It allows users to add, update, or delete initialization events in the boot flow.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.init_tab.InitTab.add_or_update_event">
+<span class="sig-name descname"><span class="pre">add_or_update_event</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/init_tab.html#InitTab.add_or_update_event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.init_tab.InitTab.add_or_update_event" title="Link to this definition"></a></dt>
+<dd><p>Adds a new event or updates an existing one in the BootFlow instance 
+based on the current values in the input fields. The method handles 
+different event types (None, Trigger, Wait) and updates the corresponding
+processor and event attributes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.init_tab.InitTab.clear_selection">
+<span class="sig-name descname"><span class="pre">clear_selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/init_tab.html#InitTab.clear_selection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.init_tab.InitTab.clear_selection" title="Link to this definition"></a></dt>
+<dd><p>Clears the current selection in the treeview, resets the input fields, 
+and clears the comment box when triggered by a mouse click or escape key.</p>
+<section id="id3">
+<h3>Parameters:<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>event<span class="classifier">Event</span></dt><dd><p>The event object associated with the action.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.init_tab.InitTab.create_widgets">
+<span class="sig-name descname"><span class="pre">create_widgets</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/init_tab.html#InitTab.create_widgets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.init_tab.InitTab.create_widgets" title="Link to this definition"></a></dt>
+<dd><p>Creates and configures the widgets for the tab, including input fields, 
+buttons, comment field, and a treeview for displaying events. 
+It also sets up grid configuration for proper layout management.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.init_tab.InitTab.delete_event">
+<span class="sig-name descname"><span class="pre">delete_event</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/init_tab.html#InitTab.delete_event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.init_tab.InitTab.delete_event" title="Link to this definition"></a></dt>
+<dd><p>Deletes the selected event(s) from the BootFlow instance and updates the treeview accordingly.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.init_tab.InitTab.get_triggers">
+<span class="sig-name descname"><span class="pre">get_triggers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/init_tab.html#InitTab.get_triggers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.init_tab.InitTab.get_triggers" title="Link to this definition"></a></dt>
+<dd><p>Retrieves a list of trigger names from the BootFlow instance.</p>
+<section id="id4">
+<h3>Returns:<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>list</dt><dd><p>A list of trigger names, or [“None”] if no triggers are available.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.init_tab.InitTab.on_tree_select">
+<span class="sig-name descname"><span class="pre">on_tree_select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/init_tab.html#InitTab.on_tree_select"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.init_tab.InitTab.on_tree_select" title="Link to this definition"></a></dt>
+<dd><p>Handles the selection of an event in the treeview. 
+Populates the input fields with the selected event’s details and 
+updates the comment box with the event’s comments.</p>
+<section id="id5">
+<h3>Parameters:<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>event<span class="classifier">Event</span></dt><dd><p>The event object associated with the treeview selection.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.init_tab.InitTab.update_combobox">
+<span class="sig-name descname"><span class="pre">update_combobox</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/init_tab.html#InitTab.update_combobox"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.init_tab.InitTab.update_combobox" title="Link to this definition"></a></dt>
+<dd><p>Updates the comboboxes in the input frame with the current list of 
+processors and triggers from the BootFlow instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.init_tab.InitTab.update_listbox">
+<span class="sig-name descname"><span class="pre">update_listbox</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/init_tab.html#InitTab.update_listbox"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.init_tab.InitTab.update_listbox" title="Link to this definition"></a></dt>
+<dd><p>Updates the treeview with the current list of events from all processors in the BootFlow instance. 
+The treeview displays the event name, duration, processor name, and whether the event is a trigger or wait event.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.ui.tabs.interfaces_tab">
+<span id="src-ui-tabs-interfaces-tab-module"></span><h2>src.ui.tabs.interfaces_tab module<a class="headerlink" href="#module-src.ui.tabs.interfaces_tab" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.ui.tabs.interfaces_tab.InterfacesTab">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.ui.tabs.interfaces_tab.</span></span><span class="sig-name descname"><span class="pre">InterfacesTab</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CTkFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boot_flow</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="src.bootflow.html#src.bootflow.boot_flow.BootFlow" title="src.bootflow.boot_flow.BootFlow"><span class="pre">BootFlow</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">app</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/interfaces_tab.html#InterfacesTab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.interfaces_tab.InterfacesTab" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#src.ui.tabs.base_tab.BaseTab" title="src.ui.tabs.base_tab.BaseTab"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseTab</span></code></a></p>
+<p>A class representing the Interfaces tab, which is responsible for managing
+the interfaces within the BootFlow application. This tab allows users to
+add, update, and delete interfaces, as well as view and modify comments
+associated with each interface.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.interfaces_tab.InterfacesTab.add_or_update_interface">
+<span class="sig-name descname"><span class="pre">add_or_update_interface</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/interfaces_tab.html#InterfacesTab.add_or_update_interface"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.interfaces_tab.InterfacesTab.add_or_update_interface" title="Link to this definition"></a></dt>
+<dd><p>Adds a new interface to the BootFlow or updates an existing one based on
+the input provided in the input fields.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.interfaces_tab.InterfacesTab.clear_selection">
+<span class="sig-name descname"><span class="pre">clear_selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/interfaces_tab.html#InterfacesTab.clear_selection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.interfaces_tab.InterfacesTab.clear_selection" title="Link to this definition"></a></dt>
+<dd><p>Clears the current selection in the treeview, resetting the input fields
+and comment box to their default states.</p>
+<section id="id6">
+<h3>Parameters:<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>event<span class="classifier">Event</span></dt><dd><p>The event object associated with the clear selection action.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.interfaces_tab.InterfacesTab.create_widgets">
+<span class="sig-name descname"><span class="pre">create_widgets</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/interfaces_tab.html#InterfacesTab.create_widgets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.interfaces_tab.InterfacesTab.create_widgets" title="Link to this definition"></a></dt>
+<dd><p>Initializes and arranges the widgets within the tab, setting up the grid
+configuration, input fields, treeview, and comment field.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.interfaces_tab.InterfacesTab.delete_interface">
+<span class="sig-name descname"><span class="pre">delete_interface</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/interfaces_tab.html#InterfacesTab.delete_interface"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.interfaces_tab.InterfacesTab.delete_interface" title="Link to this definition"></a></dt>
+<dd><p>Deletes the selected interface from the BootFlow and updates the treeview.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.interfaces_tab.InterfacesTab.on_tab_selected">
+<span class="sig-name descname"><span class="pre">on_tab_selected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/interfaces_tab.html#InterfacesTab.on_tab_selected"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.interfaces_tab.InterfacesTab.on_tab_selected" title="Link to this definition"></a></dt>
+<dd><p>Updates the treeview when the tab is selected to ensure it reflects the
+current state of the interfaces in the BootFlow.</p>
+<section id="id7">
+<h3>Parameters:<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>event<span class="classifier">Event</span></dt><dd><p>The event object associated with the tab selection action.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.interfaces_tab.InterfacesTab.on_tree_select">
+<span class="sig-name descname"><span class="pre">on_tree_select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/interfaces_tab.html#InterfacesTab.on_tree_select"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.interfaces_tab.InterfacesTab.on_tree_select" title="Link to this definition"></a></dt>
+<dd><p>Handles the event when an interface is selected in the treeview, populating
+the input fields and comment box with the selected interface’s details.</p>
+<section id="id8">
+<h3>Parameters:<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>event<span class="classifier">Event</span></dt><dd><p>The event object associated with the treeview selection action.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.interfaces_tab.InterfacesTab.update_listbox">
+<span class="sig-name descname"><span class="pre">update_listbox</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/interfaces_tab.html#InterfacesTab.update_listbox"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.interfaces_tab.InterfacesTab.update_listbox" title="Link to this definition"></a></dt>
+<dd><p>Refreshes the treeview with the current list of interfaces from the BootFlow.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.ui.tabs.operations_tab">
+<span id="src-ui-tabs-operations-tab-module"></span><h2>src.ui.tabs.operations_tab module<a class="headerlink" href="#module-src.ui.tabs.operations_tab" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.ui.tabs.operations_tab.OperationsTab">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.ui.tabs.operations_tab.</span></span><span class="sig-name descname"><span class="pre">OperationsTab</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CTkFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boot_flow</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="src.bootflow.html#src.bootflow.boot_flow.BootFlow" title="src.bootflow.boot_flow.BootFlow"><span class="pre">BootFlow</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">app</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/operations_tab.html#OperationsTab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.operations_tab.OperationsTab" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#src.ui.tabs.base_tab.BaseTab" title="src.ui.tabs.base_tab.BaseTab"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseTab</span></code></a></p>
+<p>A class representing the Operations tab, which allows users to manage
+operations within the BootFlow application. This tab supports adding, 
+updating, and deleting operations, and also includes a field for 
+viewing and editing comments associated with each operation.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.operations_tab.OperationsTab.add_or_update_operation">
+<span class="sig-name descname"><span class="pre">add_or_update_operation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/operations_tab.html#OperationsTab.add_or_update_operation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.operations_tab.OperationsTab.add_or_update_operation" title="Link to this definition"></a></dt>
+<dd><p>Adds a new operation to the BootFlow or updates an existing one based on
+the input provided in the input fields.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.operations_tab.OperationsTab.clear_selection">
+<span class="sig-name descname"><span class="pre">clear_selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/operations_tab.html#OperationsTab.clear_selection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.operations_tab.OperationsTab.clear_selection" title="Link to this definition"></a></dt>
+<dd><p>Clears the current selection in the treeview, resetting the input fields
+and comment box to their default states.</p>
+<section id="id9">
+<h3>Parameters:<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>event<span class="classifier">Event</span></dt><dd><p>The event object associated with the clear selection action.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.operations_tab.OperationsTab.create_widgets">
+<span class="sig-name descname"><span class="pre">create_widgets</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/operations_tab.html#OperationsTab.create_widgets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.operations_tab.OperationsTab.create_widgets" title="Link to this definition"></a></dt>
+<dd><p>Initializes and arranges the widgets within the tab, setting up the grid
+configuration, input fields, treeview, and comment field.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.operations_tab.OperationsTab.delete_operation">
+<span class="sig-name descname"><span class="pre">delete_operation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/operations_tab.html#OperationsTab.delete_operation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.operations_tab.OperationsTab.delete_operation" title="Link to this definition"></a></dt>
+<dd><p>Deletes the selected operation from the BootFlow and updates the treeview.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.operations_tab.OperationsTab.get_software">
+<span class="sig-name descname"><span class="pre">get_software</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/operations_tab.html#OperationsTab.get_software"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.operations_tab.OperationsTab.get_software" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of available software names from the BootFlow. If no software
+is available, returns a list containing “None”.</p>
+<section id="id10">
+<h3>Returns:<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>list of str</dt><dd><p>A list of software names or a list containing “None” if no software is available.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.operations_tab.OperationsTab.on_tree_select">
+<span class="sig-name descname"><span class="pre">on_tree_select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/operations_tab.html#OperationsTab.on_tree_select"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.operations_tab.OperationsTab.on_tree_select" title="Link to this definition"></a></dt>
+<dd><p>Handles the event when an operation is selected in the treeview, populating
+the input fields and comment box with the selected operation’s details.</p>
+<section id="id11">
+<h3>Parameters:<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>event<span class="classifier">Event</span></dt><dd><p>The event object associated with the treeview selection action.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.operations_tab.OperationsTab.update_combobox">
+<span class="sig-name descname"><span class="pre">update_combobox</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/operations_tab.html#OperationsTab.update_combobox"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.operations_tab.OperationsTab.update_combobox" title="Link to this definition"></a></dt>
+<dd><p>Updates the software combobox in the input frame with the current list of software names.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.operations_tab.OperationsTab.update_listbox">
+<span class="sig-name descname"><span class="pre">update_listbox</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/operations_tab.html#OperationsTab.update_listbox"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.operations_tab.OperationsTab.update_listbox" title="Link to this definition"></a></dt>
+<dd><p>Refreshes the treeview with the current list of operations from the BootFlow,
+including details such as name, software, operation speed, and processor.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.ui.tabs.software_tab">
+<span id="src-ui-tabs-software-tab-module"></span><h2>src.ui.tabs.software_tab module<a class="headerlink" href="#module-src.ui.tabs.software_tab" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.ui.tabs.software_tab.SoftwareTab">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.ui.tabs.software_tab.</span></span><span class="sig-name descname"><span class="pre">SoftwareTab</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CTkFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boot_flow</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="src.bootflow.html#src.bootflow.boot_flow.BootFlow" title="src.bootflow.boot_flow.BootFlow"><span class="pre">BootFlow</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">app</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/software_tab.html#SoftwareTab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.software_tab.SoftwareTab" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#src.ui.tabs.base_tab.BaseTab" title="src.ui.tabs.base_tab.BaseTab"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseTab</span></code></a></p>
+<p>A class representing the Software tab, which allows users to manage
+software entries within the BootFlow application. This tab supports adding,
+updating, and deleting software entries, and also includes a field for
+viewing and editing comments associated with each software.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.software_tab.SoftwareTab.add_or_update_software">
+<span class="sig-name descname"><span class="pre">add_or_update_software</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/software_tab.html#SoftwareTab.add_or_update_software"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.software_tab.SoftwareTab.add_or_update_software" title="Link to this definition"></a></dt>
+<dd><p>Adds a new software entry to the BootFlow or updates an existing one based
+on the input provided in the input fields.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.software_tab.SoftwareTab.clear_selection">
+<span class="sig-name descname"><span class="pre">clear_selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/software_tab.html#SoftwareTab.clear_selection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.software_tab.SoftwareTab.clear_selection" title="Link to this definition"></a></dt>
+<dd><p>Clears the current selection in the treeview, resetting the input fields
+and comment box to their default states.</p>
+<section id="id12">
+<h3>Parameters:<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>event<span class="classifier">Event</span></dt><dd><p>The event object associated with the clear selection action.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.software_tab.SoftwareTab.create_widgets">
+<span class="sig-name descname"><span class="pre">create_widgets</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/software_tab.html#SoftwareTab.create_widgets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.software_tab.SoftwareTab.create_widgets" title="Link to this definition"></a></dt>
+<dd><p>Initializes and arranges the widgets within the tab, setting up the grid
+configuration, input fields, treeview, and comment field.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.software_tab.SoftwareTab.delete_software">
+<span class="sig-name descname"><span class="pre">delete_software</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/software_tab.html#SoftwareTab.delete_software"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.software_tab.SoftwareTab.delete_software" title="Link to this definition"></a></dt>
+<dd><p>Deletes the selected software entries from the BootFlow and updates the treeview.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.software_tab.SoftwareTab.on_tab_selected">
+<span class="sig-name descname"><span class="pre">on_tab_selected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/software_tab.html#SoftwareTab.on_tab_selected"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.software_tab.SoftwareTab.on_tab_selected" title="Link to this definition"></a></dt>
+<dd><p>Updates the treeview listbox when the tab is selected.</p>
+<section id="id13">
+<h3>Parameters:<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>event<span class="classifier">Event</span></dt><dd><p>The event object associated with the tab selection action.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.software_tab.SoftwareTab.on_tree_select">
+<span class="sig-name descname"><span class="pre">on_tree_select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/software_tab.html#SoftwareTab.on_tree_select"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.software_tab.SoftwareTab.on_tree_select" title="Link to this definition"></a></dt>
+<dd><p>Handles the event when a software entry is selected in the treeview, populating
+the input fields and comment box with the selected software’s details.</p>
+<section id="id14">
+<h3>Parameters:<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>event<span class="classifier">Event</span></dt><dd><p>The event object associated with the treeview selection action.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.software_tab.SoftwareTab.update_listbox">
+<span class="sig-name descname"><span class="pre">update_listbox</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/software_tab.html#SoftwareTab.update_listbox"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.software_tab.SoftwareTab.update_listbox" title="Link to this definition"></a></dt>
+<dd><p>Refreshes the treeview with the current list of software from the BootFlow,
+including details such as name and size.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.ui.tabs.transfers_tab">
+<span id="src-ui-tabs-transfers-tab-module"></span><h2>src.ui.tabs.transfers_tab module<a class="headerlink" href="#module-src.ui.tabs.transfers_tab" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.ui.tabs.transfers_tab.TransfersTab">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.ui.tabs.transfers_tab.</span></span><span class="sig-name descname"><span class="pre">TransfersTab</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CTkFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boot_flow</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="src.bootflow.html#src.bootflow.boot_flow.BootFlow" title="src.bootflow.boot_flow.BootFlow"><span class="pre">BootFlow</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">app</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/transfers_tab.html#TransfersTab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.transfers_tab.TransfersTab" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#src.ui.tabs.base_tab.BaseTab" title="src.ui.tabs.base_tab.BaseTab"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseTab</span></code></a></p>
+<p>A class representing the Transfers tab, which allows users to manage
+program transfer events within the BootFlow application. This tab supports
+adding, updating, and deleting transfer events, and also includes a field
+for viewing and editing comments associated with each transfer.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.transfers_tab.TransfersTab.add_or_update_transfer">
+<span class="sig-name descname"><span class="pre">add_or_update_transfer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/transfers_tab.html#TransfersTab.add_or_update_transfer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.transfers_tab.TransfersTab.add_or_update_transfer" title="Link to this definition"></a></dt>
+<dd><p>Adds a new program transfer event to the BootFlow or updates an existing one based
+on the input provided in the input fields.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.transfers_tab.TransfersTab.clear_selection">
+<span class="sig-name descname"><span class="pre">clear_selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/transfers_tab.html#TransfersTab.clear_selection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.transfers_tab.TransfersTab.clear_selection" title="Link to this definition"></a></dt>
+<dd><p>Clears the current selection in the treeview, resetting the input fields
+and comment box to their default states.</p>
+<section id="id15">
+<h3>Parameters:<a class="headerlink" href="#id15" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>event<span class="classifier">Event</span></dt><dd><p>The event object associated with the clear selection action.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.transfers_tab.TransfersTab.create_widgets">
+<span class="sig-name descname"><span class="pre">create_widgets</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/transfers_tab.html#TransfersTab.create_widgets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.transfers_tab.TransfersTab.create_widgets" title="Link to this definition"></a></dt>
+<dd><p>Initializes and arranges the widgets within the tab, setting up the grid
+configuration, input fields, treeview, and comment field.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.transfers_tab.TransfersTab.delete_transfer">
+<span class="sig-name descname"><span class="pre">delete_transfer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/transfers_tab.html#TransfersTab.delete_transfer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.transfers_tab.TransfersTab.delete_transfer" title="Link to this definition"></a></dt>
+<dd><p>Deletes the selected program transfer entries from the BootFlow and updates the treeview.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.transfers_tab.TransfersTab.get_interfaces">
+<span class="sig-name descname"><span class="pre">get_interfaces</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/transfers_tab.html#TransfersTab.get_interfaces"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.transfers_tab.TransfersTab.get_interfaces" title="Link to this definition"></a></dt>
+<dd><p>Retrieves a list of interface names available in the BootFlow. If no interfaces
+are available, returns a list with a single entry “None”.</p>
+<section id="id16">
+<h3>Returns:<a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>list</dt><dd><p>A list of interface names or [“None”] if no interfaces are available.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.transfers_tab.TransfersTab.get_software">
+<span class="sig-name descname"><span class="pre">get_software</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/transfers_tab.html#TransfersTab.get_software"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.transfers_tab.TransfersTab.get_software" title="Link to this definition"></a></dt>
+<dd><p>Retrieves a list of software names available in the BootFlow. If no software
+is available, returns a list with a single entry “None”.</p>
+<section id="id17">
+<h3>Returns:<a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>list</dt><dd><p>A list of software names or [“None”] if no software is available.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.transfers_tab.TransfersTab.on_tree_select">
+<span class="sig-name descname"><span class="pre">on_tree_select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/transfers_tab.html#TransfersTab.on_tree_select"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.transfers_tab.TransfersTab.on_tree_select" title="Link to this definition"></a></dt>
+<dd><p>Handles the event when a program transfer entry is selected in the treeview, populating
+the input fields and comment box with the selected transfer’s details.</p>
+<section id="id18">
+<h3>Parameters:<a class="headerlink" href="#id18" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>event<span class="classifier">Event</span></dt><dd><p>The event object associated with the treeview selection action.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.transfers_tab.TransfersTab.update_combobox">
+<span class="sig-name descname"><span class="pre">update_combobox</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/transfers_tab.html#TransfersTab.update_combobox"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.transfers_tab.TransfersTab.update_combobox" title="Link to this definition"></a></dt>
+<dd><p>Updates the values of the combo boxes in the input frame with available interfaces
+and software.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ui.tabs.transfers_tab.TransfersTab.update_listbox">
+<span class="sig-name descname"><span class="pre">update_listbox</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ui/tabs/transfers_tab.html#TransfersTab.update_listbox"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ui.tabs.transfers_tab.TransfersTab.update_listbox" title="Link to this definition"></a></dt>
+<dd><p>Refreshes the treeview with the current list of program transfers from the BootFlow,
+including details such as name, software, interface, and processor.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.ui.tabs">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-src.ui.tabs" title="Link to this heading"></a></h2>
+<p>Tabs for the UI components for the BootFlow application.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="src.ui.html" class="btn btn-neutral float-left" title="src.ui package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="src.utility.html" class="btn btn-neutral float-right" title="src.utility package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Vincent Tremmel.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

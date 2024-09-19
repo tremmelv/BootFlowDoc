@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.ui.tabs.base_tab &mdash; BootFlowTool 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            BootFlowTool
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modules.html">BootFlow</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">BootFlowTool</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">src.ui.tabs.base_tab</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for src.ui.tabs.base_tab</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">customtkinter</span> <span class="k">as</span> <span class="nn">ctk</span>
+<span class="kn">from</span> <span class="nn">src.bootflow.boot_flow</span> <span class="kn">import</span> <span class="n">BootFlow</span>
+
+<div class="viewcode-block" id="BaseTab"><a class="viewcode-back" href="../../../../src.ui.tabs.html#src.ui.tabs.base_tab.BaseTab">[docs]</a><span class="k">class</span> <span class="nc">BaseTab</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A base class for creating tabs in the application, intended to be subclassed by specific tabs.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">    -----------</span>
+<span class="sd">    master : ctk.CTkFrame</span>
+<span class="sd">        The parent frame in which the tab&#39;s widgets are placed.</span>
+<span class="sd">    boot_flow : BootFlow</span>
+<span class="sd">        An instance of BootFlow that the tab interacts with.</span>
+<span class="sd">    app : object</span>
+<span class="sd">        A reference to the main application, allowing interaction with other parts of the app.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">master</span><span class="p">:</span> <span class="n">ctk</span><span class="o">.</span><span class="n">CTkFrame</span><span class="p">,</span> <span class="n">boot_flow</span><span class="p">:</span> <span class="n">BootFlow</span><span class="p">,</span> <span class="n">app</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes the BaseTab with the given master frame, BootFlow instance, and application reference.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        master : ctk.CTkFrame</span>
+<span class="sd">            The parent frame for the tab&#39;s widgets.</span>
+<span class="sd">        boot_flow : BootFlow</span>
+<span class="sd">            An instance of BootFlow that the tab will use.</span>
+<span class="sd">        app : object</span>
+<span class="sd">            A reference to the main application.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">master</span> <span class="o">=</span> <span class="n">master</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">boot_flow</span> <span class="o">=</span> <span class="n">boot_flow</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">app</span> <span class="o">=</span> <span class="n">app</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">create_widgets</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">master</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s2">&quot;&lt;Visibility&gt;&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_tab_selected</span><span class="p">)</span>
+
+<div class="viewcode-block" id="BaseTab.create_widgets"><a class="viewcode-back" href="../../../../src.ui.tabs.html#src.ui.tabs.base_tab.BaseTab.create_widgets">[docs]</a>    <span class="k">def</span> <span class="nf">create_widgets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates the widgets for the tab. Intended to be overridden in child classes to add specific widgets.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># Override this in child classes to add specific widgets</span></div>
+
+<div class="viewcode-block" id="BaseTab.update_listbox"><a class="viewcode-back" href="../../../../src.ui.tabs.html#src.ui.tabs.base_tab.BaseTab.update_listbox">[docs]</a>    <span class="k">def</span> <span class="nf">update_listbox</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Updates the listbox in the tab. Intended to be overridden in child classes.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># Override this in child classes</span></div>
+
+<div class="viewcode-block" id="BaseTab.update_bootflow"><a class="viewcode-back" href="../../../../src.ui.tabs.html#src.ui.tabs.base_tab.BaseTab.update_bootflow">[docs]</a>    <span class="k">def</span> <span class="nf">update_bootflow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_bootflow</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Updates the BootFlow instance and refreshes the listbox.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        new_bootflow : BootFlow</span>
+<span class="sd">            The new BootFlow instance to be set.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">boot_flow</span> <span class="o">=</span> <span class="n">new_bootflow</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_listbox</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="BaseTab.get_processors"><a class="viewcode-back" href="../../../../src.ui.tabs.html#src.ui.tabs.base_tab.BaseTab.get_processors">[docs]</a>    <span class="k">def</span> <span class="nf">get_processors</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieves the names of processors from the BootFlow instance.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        --------</span>
+<span class="sd">        List[str]</span>
+<span class="sd">            A list of processor names, or [&quot;None&quot;] if no processors are present.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">processors_names</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">boot_flow</span><span class="o">.</span><span class="n">processors</span><span class="p">:</span>  <span class="c1"># Check if the list is empty</span>
+            <span class="n">processors_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;None&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">processors_names</span>
+        <span class="k">for</span> <span class="n">processors</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">boot_flow</span><span class="o">.</span><span class="n">processors</span><span class="p">:</span>
+            <span class="n">processors_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">processors</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">processors_names</span></div>
+
+<div class="viewcode-block" id="BaseTab.update_combobox"><a class="viewcode-back" href="../../../../src.ui.tabs.html#src.ui.tabs.base_tab.BaseTab.update_combobox">[docs]</a>    <span class="k">def</span> <span class="nf">update_combobox</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Updates the combobox with the list of processor names retrieved from the BootFlow instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">input_frame</span><span class="o">.</span><span class="n">entries</span><span class="p">[</span><span class="s2">&quot;Processor:&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_processors</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="BaseTab.on_tab_selected"><a class="viewcode-back" href="../../../../src.ui.tabs.html#src.ui.tabs.base_tab.BaseTab.on_tab_selected">[docs]</a>    <span class="k">def</span> <span class="nf">on_tab_selected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Event handler for when the tab is selected, triggering updates to the combobox and listbox.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        event : Event</span>
+<span class="sd">            The event object associated with the visibility change.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_combobox</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_listbox</span><span class="p">()</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Vincent Tremmel.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
